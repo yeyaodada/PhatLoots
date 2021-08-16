@@ -222,7 +222,7 @@ public class PhatLoots extends JavaPlugin {
             this.getServer().getScheduler().runTaskTimer(this, PhatLoots::saveLootTimes, autoSavePeriod, autoSavePeriod);
         }
 
-        new Metrics(this);
+        new Metrics(this, 1234);
     }
 
     /**
