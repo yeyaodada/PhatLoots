@@ -139,18 +139,17 @@ public class PhatLootsUtil {
      */
     public static Block getLeftSide(Block block) {
         switch (block.getType()) {
-        case TRAPPED_CHEST:
-        case CHEST:
-            Chest chest = (Chest) block.getState();
-            Inventory inventory = chest.getInventory();
-            //We only care about the left side because that is the Block that would be linked
-            if (inventory instanceof DoubleChestInventory) {
-                chest = (Chest) ((DoubleChestInventory) inventory).getLeftSide().getHolder();
-                block = chest.getBlock();
+            case TRAPPED_CHEST, CHEST -> {
+                Chest chest = (Chest) block.getState();
+                Inventory inventory = chest.getInventory();
+                //We only care about the left side because that is the Block that would be linked
+                if (inventory instanceof DoubleChestInventory) {
+                    chest = (Chest) ((DoubleChestInventory) inventory).getLeftSide().getHolder();
+                    block = chest.getBlock();
+                }
             }
-            break;
-        default:
-            break;
+            default -> {
+            }
         }
         return block;
     }
