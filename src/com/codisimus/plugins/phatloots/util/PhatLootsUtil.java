@@ -143,8 +143,8 @@ public class PhatLootsUtil {
                 Chest chest = (Chest) block.getState();
                 Inventory inventory = chest.getInventory();
                 //We only care about the left side because that is the Block that would be linked
-                if (inventory instanceof DoubleChestInventory) {
-                    chest = (Chest) ((DoubleChestInventory) inventory).getLeftSide().getHolder();
+                if (inventory instanceof DoubleChestInventory doubleChestInventory) {
+                    chest = (Chest) doubleChestInventory.getLeftSide().getHolder();
                     block = chest.getBlock();
                 }
             }

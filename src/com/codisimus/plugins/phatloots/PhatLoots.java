@@ -121,7 +121,7 @@ public class PhatLoots extends JavaPlugin {
         mythicDropsSupport = Bukkit.getPluginManager().isPluginEnabled("MythicDrops");
         if (mythicDropsSupport) {
             try {
-                Class.forName("com.tealcube.minecraft.bukkit.mythicdrops.tiers.TierMap");
+                Class.forName("com.tealcube.minecraft.bukkit.mythicdrops.api.tiers.TierManager");
                 logger.info("Enabling MythicDrops support");
             } catch (Exception ex) {
                 logger.warning("MythicDrops was found, however PhatLoots does not yet support this version. Consider downgrading your MythicDrops version if you'd like to use the two reenable the PhatLoots hook into MythicDrops as support for later versions of this plugin is still being worked on. If you're not using any of the hooks PhatLoots offers into MythicDrops, ignore this.");
