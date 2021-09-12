@@ -397,10 +397,15 @@ public class PhatLoots extends JavaPlugin {
     public static void load() {
         //Load each YAML file in the LootTables folder
         File dir = new File(dataFolder, "LootTables");
+        if (!dir.isDirectory())
+            return;
+        File [] files = dir.listFiles(PhatLootsUtil.YAML_FILTER);
+        if (files == null)
+            return;
         if (isDebug()) {
-            debug(dir.listFiles(PhatLootsUtil.YAML_FILTER).length + " loot table(s) have been found in " + dir.getPath());
+            debug(files.length + " loot table(s) have been found in " + dir.getPath());
         }
-        for (File file : dir.listFiles(PhatLootsUtil.YAML_FILTER)) {
+        for (File file : files) {
             long startTime = System.currentTimeMillis();
             try {
                 String name = file.getName();
@@ -411,6 +416,9 @@ public class PhatLoots extends JavaPlugin {
                 PhatLoot phatLoot = (PhatLoot) config.get(config.contains(name)
                                                           ? name
                                                           : config.getKeys(false).iterator().next());
+
+                if (phatLoot == null)
+                    return;
                 if (!phatLoot.name.equals(name)) {
                     if (isDebug()) {
                         debug("PhatLoot name (" + phatLoot.name + ") does not match file name (" + name + "), renaming PhatLoot to " + name);
