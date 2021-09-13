@@ -18,7 +18,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.text.DecimalFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.logging.Level;
@@ -34,7 +33,6 @@ import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 /**
  * Loads Plugin and manages Data/Listeners/etc.
@@ -121,7 +119,7 @@ public class PhatLoots extends JavaPlugin {
         mythicDropsSupport = Bukkit.getPluginManager().isPluginEnabled("MythicDrops");
         if (mythicDropsSupport) {
             try {
-                Class.forName("com.tealcube.minecraft.bukkit.mythicdrops.tiers.TierMap");
+                Class.forName("com.tealcube.minecraft.bukkit.mythicdrops.api.tiers.TierManager");
                 logger.info("Enabling MythicDrops support");
             } catch (Exception ex) {
                 logger.warning("MythicDrops was found, however PhatLoots does not yet support this version. Consider downgrading your MythicDrops version if you'd like to use the two reenable the PhatLoots hook into MythicDrops as support for later versions of this plugin is still being worked on. If you're not using any of the hooks PhatLoots offers into MythicDrops, ignore this.");
@@ -222,7 +220,7 @@ public class PhatLoots extends JavaPlugin {
             this.getServer().getScheduler().runTaskTimer(this, PhatLoots::saveLootTimes, autoSavePeriod, autoSavePeriod);
         }
 
-        new Metrics(this);
+//        new Metrics(this, 1234);
     }
 
     /**
@@ -397,10 +395,15 @@ public class PhatLoots extends JavaPlugin {
     public static void load() {
         //Load each YAML file in the LootTables folder
         File dir = new File(dataFolder, "LootTables");
+        if (!dir.isDirectory())
+            return;
+        File [] files = dir.listFiles(PhatLootsUtil.YAML_FILTER);
+        if (files == null)
+            return;
         if (isDebug()) {
-            debug(dir.listFiles(PhatLootsUtil.YAML_FILTER).length + " loot table(s) have been found in " + dir.getPath());
+            debug(files.length + " loot table(s) have been found in " + dir.getPath());
         }
-        for (File file : dir.listFiles(PhatLootsUtil.YAML_FILTER)) {
+        for (File file : files) {
             long startTime = System.currentTimeMillis();
             try {
                 String name = file.getName();
@@ -411,6 +414,9 @@ public class PhatLoots extends JavaPlugin {
                 PhatLoot phatLoot = (PhatLoot) config.get(config.contains(name)
                                                           ? name
                                                           : config.getKeys(false).iterator().next());
+
+                if (phatLoot == null)
+                    return;
                 if (!phatLoot.name.equals(name)) {
                     if (isDebug()) {
                         debug("PhatLoot name (" + phatLoot.name + ") does not match file name (" + name + "), renaming PhatLoot to " + name);
@@ -421,9 +427,10 @@ public class PhatLoots extends JavaPlugin {
                 phatLoot.save();
 
                 if (isDebug()) {
-                    double loadTime = System.currentTimeMillis() - startTime / 1000D;
+                    double loadTime = (System.currentTimeMillis() - startTime) / 1000D;
                     if (loadTime > 4) {
-                        debug("PhatLoot name (" + phatLoot.name + ") took a long time to load - " + new DecimalFormat("#.###").format(loadTime) + "s");
+                        String timeFormatted = String.format("%.2f", Math.round( loadTime * 100 ) / 100.0);
+                        debug("PhatLoot name (" + phatLoot.name + ") took a long time to load - " + timeFormatted + "s");
                     }
                 }
             } catch (Exception ex) {
@@ -431,7 +438,7 @@ public class PhatLoots extends JavaPlugin {
             }
         }
         if (isDebug()) {
-            debug(phatLoots.size() + " loot tables were succesfully loaded.");
+            debug(phatLoots.size() + " loot tables were successfully loaded.");
         }
     }
 
