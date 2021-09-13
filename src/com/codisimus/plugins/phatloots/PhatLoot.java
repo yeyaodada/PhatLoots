@@ -4,6 +4,7 @@ import com.codisimus.plugins.phatloots.conditions.LootCondition;
 import com.codisimus.plugins.phatloots.events.*;
 import com.codisimus.plugins.phatloots.loot.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
@@ -1149,7 +1150,7 @@ public final class PhatLoot implements ConfigurationSerializable {
         //Save the config with UTF-8 encoding
         File file = new File(PhatLoots.dataFolder, "LootTables" + File.separator + name + ".yml");
         String data = config.saveToString();
-        try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8")) {
+        try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
             out.write(data, 0, data.length());
             out.flush();
         } catch (IOException ex) {
