@@ -18,7 +18,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.text.DecimalFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.logging.Level;
@@ -34,7 +33,6 @@ import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 /**
  * Loads Plugin and manages Data/Listeners/etc.
@@ -429,9 +427,10 @@ public class PhatLoots extends JavaPlugin {
                 phatLoot.save();
 
                 if (isDebug()) {
-                    double loadTime = System.currentTimeMillis() - startTime / 1000D;
+                    double loadTime = (System.currentTimeMillis() - startTime) / 1000D;
                     if (loadTime > 4) {
-                        debug("PhatLoot name (" + phatLoot.name + ") took a long time to load - " + new DecimalFormat("#.###").format(loadTime) + "s");
+                        String timeFormatted = String.format("%.2f", Math.round( loadTime * 100 ) / 100.0);
+                        debug("PhatLoot name (" + phatLoot.name + ") took a long time to load - " + timeFormatted + "s");
                     }
                 }
             } catch (Exception ex) {
@@ -439,7 +438,7 @@ public class PhatLoots extends JavaPlugin {
             }
         }
         if (isDebug()) {
-            debug(phatLoots.size() + " loot tables were succesfully loaded.");
+            debug(phatLoots.size() + " loot tables were successfully loaded.");
         }
     }
 
