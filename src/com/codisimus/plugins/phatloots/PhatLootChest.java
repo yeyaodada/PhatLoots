@@ -354,10 +354,14 @@ public class PhatLootChest {
      * @return The new Inventory that was created
      */
     public static Inventory getInventory(String user, String name, PhatLootChest chest) {
-        BlockState state = chest.getBlock().getState();
-        switch (state.getType()) {
-            case DISPENSER: return ((Dispenser) state).getInventory();
-            case DROPPER: return ((Dropper) state).getInventory();
+        if (chest != null) {
+            BlockState state = chest.getBlock().getState();
+            switch (state.getType()) {
+                case DISPENSER:
+                    return ((Dispenser) state).getInventory();
+                case DROPPER:
+                    return ((Dropper) state).getInventory();
+            }
         }
 
         //Create the custom key using the user and Block location
