@@ -169,8 +169,8 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>org.bstats.bukkit</pattern>
-                            <shadedPattern>com.codisimus.plugins.phatloots.metrics</shadedPattern>
+                            <pattern>org.bstats</pattern>
+                            <shadedPattern>com.codisimus.plugins.phatloots.shaded.bstats</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

@@ -424,7 +424,6 @@ public class PhatLoots extends JavaPlugin {
                     phatLoot.name = name;
                 }
                 phatLoots.put(name, phatLoot);
-                phatLoot.save();
 
                 if (isDebug()) {
                     double loadTime = (System.currentTimeMillis() - startTime) / 1000D;
@@ -513,11 +512,7 @@ public class PhatLoots extends JavaPlugin {
      */
     public static LinkedList<PhatLoot> getPhatLoots(Block block, Player player) {
         LinkedList<PhatLoot> phatLootList = getPhatLoots(block);
-        for (PhatLoot phatLoot : phatLootList) {
-            if (!PhatLootsUtil.canLoot(player, phatLoot)) {
-                phatLootList.remove(phatLoot);
-            }
-        }
+        phatLootList.removeIf(phatLoot -> !PhatLootsUtil.canLoot(player, phatLoot));
         return phatLootList;
     }
 
