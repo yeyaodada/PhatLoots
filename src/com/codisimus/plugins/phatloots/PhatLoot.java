@@ -169,20 +169,20 @@ public final class PhatLoot implements ConfigurationSerializable {
      */
     public String timeToString(long time) {
         if (time < 0) {
-            return "forever";
+            return PhatLootsConfig.resetTimeForever;
         }
 
         //Find the appropriate unit of time and return that amount
         if (time > DateUtils.MILLIS_PER_DAY) {
-            return time / DateUtils.MILLIS_PER_DAY + " day(s)";
+            return time / DateUtils.MILLIS_PER_DAY + " " + PhatLootsConfig.resetTimeDays;
         } else if (time > DateUtils.MILLIS_PER_HOUR) {
-            return time / DateUtils.MILLIS_PER_HOUR + " hour(s)";
+            return time / DateUtils.MILLIS_PER_HOUR + " " + PhatLootsConfig.resetTimeHours;
         } else if (time > DateUtils.MILLIS_PER_MINUTE) {
-            return time / DateUtils.MILLIS_PER_MINUTE + " minute(s)";
+            return time / DateUtils.MILLIS_PER_MINUTE + " " + PhatLootsConfig.resetTimeMinutes;
         } else if (time > DateUtils.MILLIS_PER_SECOND) {
-            return time / DateUtils.MILLIS_PER_SECOND + " second(s)";
+            return time / DateUtils.MILLIS_PER_SECOND + " " + PhatLootsConfig.defaultSeconds;
         } else {
-            return time + " millisecond(s)";
+            return time + " " + PhatLootsConfig.resetTimeMilliseconds;
         }
     }
 

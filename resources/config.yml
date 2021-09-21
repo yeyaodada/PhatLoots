@@ -153,6 +153,12 @@ Messages:
     LootMessage: ''
     LootBroadcast: ''
     LootConditionsNotMet: '&4You cannot loot this chest at this time!'
+    ResetTimeForever: 'forever'
+    ResetTimeDays: 'days'
+    ResetTimeHours: 'hours'
+    ResetTimeMinutes: 'minutes'
+    ResetTimeSeconds: 'seconds'
+    ResetTimeMilliseconds: 'milliseconds'
 
 ##PhatLoot Chests will display this name at the top of the Chest GUI
 ##<name> will be replaced with the name of the linked PhatLoot
