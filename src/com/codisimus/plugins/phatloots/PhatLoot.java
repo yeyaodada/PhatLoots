@@ -186,7 +186,7 @@ public final class PhatLoot implements ConfigurationSerializable {
         } else if (time > DateUtils.MILLIS_PER_MINUTE) {
             return time / DateUtils.MILLIS_PER_MINUTE + " " + PhatLootsConfig.resetTimeMinutes;
         } else if (time > DateUtils.MILLIS_PER_SECOND) {
-            return time / DateUtils.MILLIS_PER_SECOND + " " + PhatLootsConfig.defaultSeconds;
+            return time / DateUtils.MILLIS_PER_SECOND + " " + PhatLootsConfig.resetTimeSeconds;
         } else {
             return time + " " + PhatLootsConfig.resetTimeMilliseconds;
         }
