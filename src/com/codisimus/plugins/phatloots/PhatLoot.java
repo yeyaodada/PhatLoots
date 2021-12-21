@@ -4,7 +4,13 @@ import com.codisimus.plugins.phatloots.conditions.LootCondition;
 import com.codisimus.plugins.phatloots.events.*;
 import com.codisimus.plugins.phatloots.loot.*;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalUnit;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
@@ -158,7 +164,7 @@ public final class PhatLoot implements ConfigurationSerializable {
                 + seconds * DateUtils.MILLIS_PER_SECOND;
 
         //Return the remaining time or 0 if the time has already passed
-        return Math.max(time - System.currentTimeMillis(), 0);
+        return Math.max(time - Instant.now().atZone(ZoneOffset.systemDefault()).toEpochSecond() * 1000, 0);
     }
 
     /**
@@ -169,20 +175,20 @@ public final class PhatLoot implements ConfigurationSerializable {
      */
     public String timeToString(long time) {
         if (time < 0) {
-            return "forever";
+            return PhatLootsConfig.resetTimeForever;
         }
 
         //Find the appropriate unit of time and return that amount
         if (time > DateUtils.MILLIS_PER_DAY) {
-            return time / DateUtils.MILLIS_PER_DAY + " day(s)";
+            return time / DateUtils.MILLIS_PER_DAY + " " + PhatLootsConfig.resetTimeDays;
         } else if (time > DateUtils.MILLIS_PER_HOUR) {
-            return time / DateUtils.MILLIS_PER_HOUR + " hour(s)";
+            return time / DateUtils.MILLIS_PER_HOUR + " " + PhatLootsConfig.resetTimeHours;
         } else if (time > DateUtils.MILLIS_PER_MINUTE) {
-            return time / DateUtils.MILLIS_PER_MINUTE + " minute(s)";
+            return time / DateUtils.MILLIS_PER_MINUTE + " " + PhatLootsConfig.resetTimeMinutes;
         } else if (time > DateUtils.MILLIS_PER_SECOND) {
-            return time / DateUtils.MILLIS_PER_SECOND + " second(s)";
+            return time / DateUtils.MILLIS_PER_SECOND + " " + PhatLootsConfig.defaultSeconds;
         } else {
-            return time + " millisecond(s)";
+            return time + " " + PhatLootsConfig.resetTimeMilliseconds;
         }
     }
 
@@ -193,22 +199,22 @@ public final class PhatLoot implements ConfigurationSerializable {
      * @param chest The PhatLootChest to set the time for
      */
     public void setTime(Player player, PhatLootChest chest) {
-        Calendar calendar = Calendar.getInstance();
+        ZonedDateTime time = Instant.now().atZone(ZoneOffset.systemDefault());
 
         if (round) {
             //Don't worry about the lower unset time values
             if (seconds == 0) {
-                calendar.clear(Calendar.SECOND);
+                time = time.truncatedTo(ChronoUnit.MINUTES);
                 if (minutes == 0) {
-                    calendar.clear(Calendar.MINUTE);
+                    time = time.truncatedTo(ChronoUnit.HOURS);
                     if (hours == 0) {
-                        calendar.clear(Calendar.HOUR_OF_DAY);
+                        time = time.truncatedTo(ChronoUnit.DAYS);
                     }
                 }
             }
         }
 
-        lootTimes.setProperty(getKey(player, chest), String.valueOf(calendar.getTimeInMillis()));
+        lootTimes.setProperty(getKey(player, chest), String.valueOf(time.toEpochSecond() * 1000));
     }
 
     /**
@@ -1017,7 +1023,7 @@ public final class PhatLoot implements ConfigurationSerializable {
         }
 
         //Calculate the latest timestamp that would have reset by now
-        long time = System.currentTimeMillis()
+        long time = Instant.now().toEpochMilli()
                     - days * DateUtils.MILLIS_PER_DAY
                     - hours * DateUtils.MILLIS_PER_HOUR
                     - minutes * DateUtils.MILLIS_PER_MINUTE
@@ -1150,7 +1156,7 @@ public final class PhatLoot implements ConfigurationSerializable {
         //Save the config with UTF-8 encoding
         File file = new File(PhatLoots.dataFolder, "LootTables" + File.separator + name + ".yml");
         String data = config.saveToString();
-        try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
+        try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8")) {
             out.write(data, 0, data.length());
             out.flush();
         } catch (IOException ex) {
