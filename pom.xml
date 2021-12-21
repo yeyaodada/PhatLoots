@@ -31,10 +31,6 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public</url>
         </repository>
-        <repository> <!-- for development builds -->
-        <id>sonatype-oss-snapshots</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </repository>
         <repository>
             <id>citizens-repo</id>
             <url>https://repo.citizensnpcs.co</url>
@@ -147,13 +143,8 @@
         </dependency>
         <dependency>
             <groupId>net.kyori</groupId>
-            <artifactId>adventure-platform-viaversion</artifactId>
-            <version>4.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>net.kyori</groupId>
-            <artifactId>adventure-platform-facet</artifactId>
-            <version>4.0.0-SNAPSHOT</version>
+            <artifactId>adventure-api</artifactId>
+            <version>4.9.3</version>
         </dependency>
     </dependencies>
     <!-- How we will compile the plugin -->
