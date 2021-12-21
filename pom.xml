@@ -141,6 +141,11 @@
             <version>2.2.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-platform-bukkit</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
     <!-- How we will compile the plugin -->
     <build>
