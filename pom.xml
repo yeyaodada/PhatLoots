@@ -4,7 +4,7 @@
     <groupId>com.codisimus.plugins</groupId>
     <artifactId>phatloots</artifactId>
     <packaging>jar</packaging>
-    <version>5.5.2</version>
+    <version>5.5.3</version>
     <name>PhatLoots</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,10 +43,7 @@
             <id>auranode-repo</id>
             <url>https://dl.auranode.com/repo/</url>
         </repository>
-        <repository>
-            <id>vault-repo</id>
-            <url>http://nexus.hc.to/content/repositories/pub_releases</url>
-        </repository>
+        <!--Vault Repo-->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -75,7 +72,7 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-chat</artifactId>
-            <version>1.16-R0.4</version>
+            <version>1.18-R0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
@@ -89,13 +86,13 @@
         <dependency>
             <groupId>com.sk89q.worldguard</groupId>
             <artifactId>worldguard-core</artifactId>
-            <version>7.0.7-SNAPSHOT</version>
+            <version>7.0.6</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.sk89q.worldedit</groupId>
             <artifactId>worldedit-bukkit</artifactId>
-            <version>7.3.0-SNAPSHOT</version>
+            <version>7.2.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -107,19 +104,19 @@
         <dependency>
             <groupId>com.github.NuVotifier</groupId>
             <artifactId>NuVotifier</artifactId>
-            <version>2.6.0</version>
+            <version>2.7.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.pixeloutlaw</groupId>
             <artifactId>mythicdrops</artifactId>
-            <version>8.0.3</version>
+            <version>8.0.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.10.10</version>
+            <version>2.11.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -140,11 +137,6 @@
             <artifactId>bstats-bukkit</artifactId>
             <version>2.2.1</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.kyori</groupId>
-            <artifactId>adventure-api</artifactId>
-            <version>4.9.3</version>
         </dependency>
     </dependencies>
     <!-- How we will compile the plugin -->
