@@ -33,6 +33,9 @@ ARMOR:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
 
 SWORD:
     sharpness:
@@ -74,6 +77,9 @@ SWORD:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
 
 AXE:
     sharpness:
@@ -115,6 +121,9 @@ AXE:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
 
 BOW:
     power:
@@ -139,6 +148,9 @@ BOW:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
 
 PICKAXE:
     efficiency:
@@ -153,6 +165,9 @@ PICKAXE:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
 
 SHOVEL:
     efficiency:
@@ -167,6 +182,9 @@ SHOVEL:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
 
 HOE:
     unbreaking:
@@ -174,3 +192,50 @@ HOE:
         1: 5
         2: 4
         3: 1
+    mending:
+        0: 90
+        1: 10
+
+FISHING_ROD:
+    lure:
+        0: 90
+        1: 5
+        2: 4
+        3: 1
+    luck_of_the_sea:
+        0: 90
+        1: 5
+        2: 4
+        3: 1
+    unbreaking:
+        0: 90
+        1: 5
+        2: 4
+        3: 1
+    mending:
+        0: 90
+        1: 10
+
+CROSSBOW:
+    multishot:
+        0: 90
+        1: 10
+    piercing:
+        0: 90
+        1: 4
+        2: 3
+        3: 2
+        4: 1
+    quick_charge:
+        0: 90
+        1: 5
+        2: 4
+        3: 1
+    unbreaking:
+        0: 90
+        1: 5
+        2: 4
+        3: 1
+    mending:
+        0: 90
+        1: 10

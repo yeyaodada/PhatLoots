@@ -35,6 +35,8 @@ public class Item extends Loot {
     private static final String SWORD = "SWORD";
     private static final String AXE = "AXE";
     private static final String BOW = "BOW";
+    private static final String CROSSBOW = "CROSSBOW";
+    private static final String FISHING_ROD = "FISHING_ROD";
     private static final String PICKAXE = "PICKAXE";
     private static final String SPADE = "SPADE";
     private static final String HOE = "HOE";
@@ -52,33 +54,44 @@ public class Item extends Loot {
     private static final Enchantment[] ARMOR_ENCHANTMENTS = {
         Enchantment.PROTECTION_ENVIRONMENTAL, Enchantment.PROTECTION_FIRE,
         Enchantment.PROTECTION_EXPLOSIONS, Enchantment.PROTECTION_PROJECTILE,
-        Enchantment.THORNS, Enchantment.DURABILITY
+        Enchantment.THORNS, Enchantment.DURABILITY, Enchantment.MENDING
     };
     private static final Enchantment[] SWORD_ENCHANTMENTS = {
         Enchantment.DAMAGE_ALL, Enchantment.DAMAGE_UNDEAD,
         Enchantment.DAMAGE_ARTHROPODS, Enchantment.KNOCKBACK,
         Enchantment.FIRE_ASPECT, Enchantment.LOOT_BONUS_MOBS,
-        Enchantment.DURABILITY
+        Enchantment.DURABILITY, Enchantment.MENDING
     };
     private static final Enchantment[] AXE_ENCHANTMENTS = {
         Enchantment.DAMAGE_ALL, Enchantment.DAMAGE_UNDEAD,
         Enchantment.DAMAGE_ARTHROPODS, Enchantment.KNOCKBACK,
         Enchantment.FIRE_ASPECT, Enchantment.LOOT_BONUS_MOBS,
-        Enchantment.DURABILITY
+        Enchantment.DURABILITY, Enchantment.MENDING
     };
     private static final Enchantment[] BOW_ENCHANTMENTS = {
         Enchantment.ARROW_DAMAGE, Enchantment.ARROW_KNOCKBACK,
         Enchantment.ARROW_FIRE, Enchantment.ARROW_INFINITE,
-        Enchantment.DURABILITY
+        Enchantment.DURABILITY, Enchantment.MENDING
+    };
+    // Added all the crossbow auto enchantments
+    private static final Enchantment[] CROSSBOW_ENCHANTMENTS = {
+            Enchantment.MULTISHOT, Enchantment.PIERCING,
+            Enchantment.QUICK_CHARGE, Enchantment.DURABILITY,
+            Enchantment.MENDING
+    };
+    // Added all the fishing rod auto enchantments
+    private static final Enchantment[] FISHING_ROD_ENCHANTMENTS = {
+            Enchantment.LURE, Enchantment.LUCK,
+            Enchantment.MENDING, Enchantment.DURABILITY
     };
     private static final Enchantment[] PICKAXE_ENCHANTMENTS = {
-        Enchantment.DIG_SPEED, Enchantment.DURABILITY
+        Enchantment.DIG_SPEED, Enchantment.DURABILITY, Enchantment.MENDING
     };
     private static final Enchantment[] SPADE_ENCHANTMENTS = {
-        Enchantment.DIG_SPEED, Enchantment.DURABILITY
+        Enchantment.DIG_SPEED, Enchantment.DURABILITY, Enchantment.MENDING
     };
     private static final Enchantment[] HOE_ENCHANTMENTS = {
-        Enchantment.DURABILITY
+        Enchantment.DURABILITY, Enchantment.MENDING
     };
     /* MATERIALS */
     private static final EnumSet<Material> ARMOR_MATERIAL_SET = EnumSet.of(
@@ -360,6 +373,12 @@ public class Item extends Loot {
             } else if (mat == Material.BOW) {
                 type = BOW;
                 enchantments = BOW_ENCHANTMENTS;
+            } else if (mat == Material.CROSSBOW) {
+                type = CROSSBOW;
+                enchantments = CROSSBOW_ENCHANTMENTS;
+            } else if (mat == Material.FISHING_ROD) {
+                type = FISHING_ROD;
+                enchantments = FISHING_ROD_ENCHANTMENTS;
             } else {
                 type = "";
                 enchantments = new Enchantment[0];
