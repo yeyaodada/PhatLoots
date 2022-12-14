@@ -24,7 +24,7 @@ public class Tool {
         List<String> lore = new ArrayList<>();
         meta.setDisplayName("§2Navigate/Move (Click to change Tool)");
         lore.add("§4LEFT CLICK:");
-        lore.add("§6 Enter a Collection");
+        lore.add("§6 Enter a Collection or add/remove Loot");
         lore.add("§4RIGHT CLICK:");
         lore.add("§6 Leave a Collection");
         lore.add("§4SHIFT + LEFT CLICK:");
@@ -32,8 +32,6 @@ public class Tool {
         lore.add("§6 Shift a Loot to the Left");
         lore.add("§4SHIFT + RIGHT CLICK:");
         lore.add("§6 Shift a Loot to the Right");
-        lore.add("§4SCROLL CLICK:");
-        lore.add("§6 Remove a Loot/Add an Item (from inventory)");
         meta.setLore(lore);
         item.setItemMeta(meta);
         new Tool("NAVIGATE_AND_MOVE", item).registerTool();
@@ -52,8 +50,6 @@ public class Tool {
         lore.add("§6 Toggle AutoEnchant/FromConsole");
         lore.add("§4SHIFT + RIGHT CLICK:");
         lore.add("§6 Toggle GenerateName/TempOP");
-        lore.add("§4SCROLL CLICK:");
-        lore.add("§6 Toggle TieredName and Loot table settings");
         meta.setLore(lore);
         item.setItemMeta(meta);
         new Tool("MODIFY_PROBABILITY_AND_TOGGLE", item).registerTool();
@@ -72,8 +68,6 @@ public class Tool {
         lore.add("§6 +1 Amount (Upper Range)");
         lore.add("§4SHIFT + RIGHT CLICK:");
         lore.add("§6 -1 Amount (Upper Range)");
-        lore.add("§4SCROLL CLICK:");
-        lore.add("§6 Set Amount to 1 and Clear time/exp/money");
         meta.setLore(lore);
         item.setItemMeta(meta);
         new Tool("MODIFY_AMOUNT", item).registerTool();

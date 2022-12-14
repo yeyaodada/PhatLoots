@@ -84,9 +84,6 @@ public class ExperienceCondition extends LootCondition {
             experience -= 1;
         }
 
-        if (click == ClickType.MIDDLE)
-            experience = 1;
-
         ItemStack item = super.handleClick(player, phatLoot, inventory, click);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(ChatColor.YELLOW + "Experience Condition");
@@ -104,8 +101,6 @@ public class ExperienceCondition extends LootCondition {
         lore.add("§6 Add Experience");
         lore.add("§4SHIFT + RIGHT CLICK:");
         lore.add("§6 Remove Experience");
-        lore.add("§4SCROLL CLICK:");
-        lore.add("§6 Reset Experience to 1");
         meta.setLore(lore);
         item.setItemMeta(meta);
         return item;

@@ -166,6 +166,7 @@ public class PlaceholderDataCondition extends LootCondition {
             };
         }
 
+        // TODO Figure out what middle click is doing here and if right can replace it
         if (click == ClickType.MIDDLE) {
             switch (inputType) {
                 case "string":

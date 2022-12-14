@@ -103,8 +103,6 @@ public class MythicDropsItem extends Loot {
         lore.add("§6 Ahead 100 Names");
         lore.add("§4SHIFT + RIGHT CLICK:");
         lore.add("§6 Back 100 Names");
-        lore.add("§4SCROLL CLICK:");
-        lore.add("§6 Back to first Name");
         meta.setLore(lore);
         item.setItemMeta(meta);
         new Tool("MYTHICDROPS", item).registerTool();

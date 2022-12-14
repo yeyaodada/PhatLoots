@@ -299,7 +299,9 @@ public final class PhatLoot implements ConfigurationSerializable {
                 //Open the Inventory if it is not already open
                 Inventory inv = chest.getInventory(getUser(player), title);
                 if (player.getOpenInventory().getTopInventory() != inv) {
-                    chest.openInventory(player, inv, global);
+                    if (!autoLoot) {
+                        chest.openInventory(player, inv, global);
+                    }
                 }
                 if (chest.isDispenser()) {
                     timeRemainingMsg = PhatLootsConfig.dispenserTimeRemaining;
@@ -315,7 +317,18 @@ public final class PhatLoot implements ConfigurationSerializable {
                 }
             }
             if (time > 0 && timeRemainingMsg != null) {
-                player.sendMessage(timeRemainingMsg.replace("<time>", timeToString(time)));
+                // Subtract the minutes off and reuse the method to get the seconds replaced
+                long days = time / DateUtils.MILLIS_PER_DAY;
+                long hours = time / DateUtils.MILLIS_PER_HOUR - days * 24;
+                long minutes = time / DateUtils.MILLIS_PER_MINUTE - hours * 60;
+                long seconds = time / DateUtils.MILLIS_PER_SECOND - minutes * 60;
+
+                player.sendMessage(timeRemainingMsg
+                        .replace("<time_d>", days + " " + PhatLootsConfig.resetTimeDays)
+                        .replace("<time_h>", hours + " " + PhatLootsConfig.resetTimeHours)
+                        .replace("<time_m>", minutes + " " + PhatLootsConfig.resetTimeMinutes)
+                        .replace("<time_s>", seconds + " " + PhatLootsConfig.resetTimeSeconds)
+                );
             }
             return flagToBreak;
         }
@@ -549,7 +562,16 @@ public final class PhatLoot implements ConfigurationSerializable {
         long time = getTimeRemaining(player);
         if (time > 0) {
             if (player != null && PhatLootsConfig.mobTimeRemaining != null) {
-                player.sendMessage(PhatLootsConfig.mobTimeRemaining.replace("<time>", timeToString(time)));
+                long days = time / DateUtils.MILLIS_PER_DAY;
+                long hours = time / DateUtils.MILLIS_PER_HOUR - days * 24;
+                long minutes = time / DateUtils.MILLIS_PER_MINUTE - hours * 60;
+                long seconds = time / DateUtils.MILLIS_PER_SECOND - minutes * 60;
+                player.sendMessage(PhatLootsConfig.mobTimeRemaining
+                        .replace("<time_d>", days + " " + PhatLootsConfig.resetTimeDays)
+                        .replace("<time_h>", hours + " " + PhatLootsConfig.resetTimeHours)
+                        .replace("<time_m>", minutes + " " + PhatLootsConfig.resetTimeMinutes)
+                        .replace("<time_s>", seconds + " " + PhatLootsConfig.resetTimeSeconds)
+                );
             }
             return 0; //Drop no experience
         }

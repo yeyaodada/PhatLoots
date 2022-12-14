@@ -82,9 +82,6 @@ public class HealthCondition extends LootCondition {
             health -= 1;
         }
 
-        if (click == ClickType.MIDDLE)
-            health = 1;
-
         ItemStack item = super.handleClick(player, phatLoot, inventory, click);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(ChatColor.YELLOW + "Health Condition");
@@ -102,8 +99,6 @@ public class HealthCondition extends LootCondition {
         lore.add("§6 Add Health");
         lore.add("§4SHIFT + RIGHT CLICK:");
         lore.add("§6 Remove Health");
-        lore.add("§4SCROLL CLICK:");
-        lore.add("§6 Reset Health to 1");
         meta.setLore(lore);
         item.setItemMeta(meta);
         return item;

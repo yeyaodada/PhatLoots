@@ -73,7 +73,7 @@ public class InventoryListener implements Listener {
         return coll == null ? phatLoot.lootList : coll.getLootList();
     }
 
-    /** LISTENERS **/
+    /* LISTENERS **/
 
     /**
      * Processes Players clicking within the PhatLoot GUI
@@ -154,7 +154,7 @@ public class InventoryListener implements Listener {
         if (stack == null)
             stack = new ItemStack(Material.AIR);
 
-        /** Switch Tools **/
+        /* Switch Tools **/
         if (slot == -999 || (inPhatLoot && slot == TOOL_SLOT)) {
             switch (event.getClick()) {
             case LEFT: //Previous Tool
@@ -174,7 +174,7 @@ public class InventoryListener implements Listener {
             return;
         }
 
-        /** Go back to a previous View **/
+        /* Go back to a previous View **/
         if (inPhatLoot && stack.getType() == Material.LADDER) {
             ItemMeta details = stack.getItemMeta();
             if (details.hasDisplayName()) {
@@ -204,7 +204,7 @@ public class InventoryListener implements Listener {
             }
         }
 
-        /** Check if a Button was Clicked **/
+        /* Check if a Button was Clicked **/
         if (buttons.containsKey(slot)) {
             if (inPhatLoot && buttons.get(slot).onClick(event.getClick(), inv, phatLoot, lootList)) {
                 refreshPage(player, inv, lootList);
@@ -212,38 +212,20 @@ public class InventoryListener implements Listener {
             return;
         }
 
-        /** No Loot was Clicked **/
-        if (loot == null) {
+        /* No Loot was Clicked **/
+        if (loot == null) {// loot is an Item in the top inventory of the GUI, part of LootList
             if (tool.getID() == NAVIGATE_AND_MOVE) {
                 switch (event.getClick()) {
-                case LEFT: //Pickup or put down an Item
-                    if (slot >= SIZE) {
-                        //Remove Loot (if holding)
-                        Loot l = holding.remove(playerUUID);
-                        //Only pick up AIR if they are not setting an Item down
-                        if (stack.getType() != Material.AIR || l == null) { //Pick up Item (Add loot)
-                            loot = new Item(stack, 0);
-                            holding.put(playerUUID, loot);
-                            event.getView().setCursor(loot.getInfoStack());
-                            event.setCurrentItem(null);
-                        } else { //Pick up nothing
-                            event.getView().setCursor(null);
-                        }
-                        if (l instanceof Item) { //Put down Item
-                            event.setCurrentItem(((Item) l).getItem());
-                        }
-                        break;
-                    }
-                    break;
-                case RIGHT: //Go back a page
-                    up(player);
-                    break;
-                case MIDDLE: //Add an Item as Loot
+                case LEFT: //Add an Item as Loot
                     if (slot > SIZE) {
                         ItemStack item = stack.clone();
                         lootList.add(new Item(item, 0));
                         refreshPage(player, inv, lootList);
                     }
+                    break;
+                case RIGHT: //Go back a page
+                    up(player);
+                    break;
                 }
                 return;
             }
@@ -271,9 +253,6 @@ public class InventoryListener implements Listener {
                 case SHIFT_RIGHT: //-1 upper amount
                     amount = -1;
                     both = false;
-                    break;
-                case MIDDLE: //Set amount to 0
-                    amount = 0;
                     break;
                 default:
                     return;
@@ -357,11 +336,11 @@ public class InventoryListener implements Listener {
             return;
         }
 
-        /** Action determined based on the Tool **/
+        /* Action determined based on the Tool **/
         switch (tool.getID()) {
         case NAVIGATE_AND_MOVE:
             switch (event.getClick()) {
-            case LEFT: //Move Loot or Enter a Collection
+            case LEFT: // Remove Loot or Enter a Collection
                 if (loot instanceof LootCollection) { //Clicked a LootCollection
                     if (holding.containsKey(playerUUID)) { //Place Loot in Collection
                         Loot l = holding.remove(playerUUID);
@@ -373,18 +352,10 @@ public class InventoryListener implements Listener {
                     return;
                 }
 
-                //Clicked some other Loot
-                if (holding.containsKey(playerUUID)) { //Swap Loot
-                    Loot l = holding.remove(playerUUID);
-                    holding.put(playerUUID, lootList.get(slot));
-                    lootList.set(slot, l);
-                    event.setCurrentItem(event.getCursor()); //Put down Loot
-                    event.getView().setCursor(stack); //Pick up new Loot
-                } else { //Pick up Loot
-                    holding.put(playerUUID, lootList.remove(slot));
-                    event.getView().setCursor(stack);
-                    refreshPage(player, inv, lootList); //Shifts remaining loot down
-                }
+                // We've entered the collection or returned by now
+                //Remove Loot
+                lootList.remove(slot);
+                refreshPage(player, inv, lootList); //Shifts remaining loot down
                 break;
             case RIGHT: //Go back a page
                 up(player);
@@ -415,9 +386,6 @@ public class InventoryListener implements Listener {
                     refreshPage(player, inv, lootList);
                 }
                 break;
-            case MIDDLE: //Remove Loot
-                lootList.remove(slot);
-                refreshPage(player, inv, lootList); //Shifts remaining loot down
             }
             break;
 
@@ -472,11 +440,6 @@ public class InventoryListener implements Listener {
                 amount = -1;
                 both = false;
                 break;
-            case MIDDLE: //Set amount to 1
-                if (loot.resetAmount()) {
-                    event.setCurrentItem(loot.getInfoStack());
-                }
-                return;
             default:
                 return;
             }
@@ -526,8 +489,8 @@ public class InventoryListener implements Listener {
         }
     }
 
-    /** END LISTENERS **/
-    /** INVENTORY VIEWS **/
+    /* END LISTENERS **/
+    /* INVENTORY VIEWS **/
 
     /**
      * Opens an Inventory GUI for the given PhatLoot to the given Player
@@ -742,5 +705,5 @@ public class InventoryListener implements Listener {
         player.updateInventory();
     }
 
-    /** END INVENTORY VIEWS **/
+    /* END INVENTORY VIEWS **/
 }
