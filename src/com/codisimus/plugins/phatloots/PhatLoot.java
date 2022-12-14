@@ -178,18 +178,15 @@ public final class PhatLoot implements ConfigurationSerializable {
             return PhatLootsConfig.resetTimeForever;
         }
 
-        //Find the appropriate unit of time and return that amount
-        if (time > DateUtils.MILLIS_PER_DAY) {
-            return time / DateUtils.MILLIS_PER_DAY + " " + PhatLootsConfig.resetTimeDays;
-        } else if (time > DateUtils.MILLIS_PER_HOUR) {
-            return time / DateUtils.MILLIS_PER_HOUR + " " + PhatLootsConfig.resetTimeHours;
-        } else if (time > DateUtils.MILLIS_PER_MINUTE) {
-            return time / DateUtils.MILLIS_PER_MINUTE + " " + PhatLootsConfig.resetTimeMinutes;
-        } else if (time > DateUtils.MILLIS_PER_SECOND) {
-            return time / DateUtils.MILLIS_PER_SECOND + " " + PhatLootsConfig.resetTimeSeconds;
-        } else {
-            return time + " " + PhatLootsConfig.resetTimeMilliseconds;
-        }
+        long days = time / DateUtils.MILLIS_PER_DAY;
+        long hours = time / DateUtils.MILLIS_PER_HOUR - days * 24;
+        long minutes = time / DateUtils.MILLIS_PER_MINUTE - hours * 60;
+        long seconds = time / DateUtils.MILLIS_PER_SECOND - minutes * 60;
+
+        return (days != 0 ? days + " " + PhatLootsConfig.resetTimeDays + ", " : "")
+                + (hours != 0 ? hours + " " + PhatLootsConfig.resetTimeHours + ", " : "")
+                + (minutes != 0 ? minutes + " " + PhatLootsConfig.resetTimeMinutes + ", " : "")
+                + (seconds != 0 ? seconds + " " + PhatLootsConfig.resetTimeSeconds : "");
     }
 
     /**
@@ -317,18 +314,7 @@ public final class PhatLoot implements ConfigurationSerializable {
                 }
             }
             if (time > 0 && timeRemainingMsg != null) {
-                // Subtract the minutes off and reuse the method to get the seconds replaced
-                long days = time / DateUtils.MILLIS_PER_DAY;
-                long hours = time / DateUtils.MILLIS_PER_HOUR - days * 24;
-                long minutes = time / DateUtils.MILLIS_PER_MINUTE - hours * 60;
-                long seconds = time / DateUtils.MILLIS_PER_SECOND - minutes * 60;
-
-                player.sendMessage(timeRemainingMsg
-                        .replace("<time_d>", days + " " + PhatLootsConfig.resetTimeDays)
-                        .replace("<time_h>", hours + " " + PhatLootsConfig.resetTimeHours)
-                        .replace("<time_m>", minutes + " " + PhatLootsConfig.resetTimeMinutes)
-                        .replace("<time_s>", seconds + " " + PhatLootsConfig.resetTimeSeconds)
-                );
+                player.sendMessage(timeRemainingMsg.replace("<time>", timeToString(time)));
             }
             return flagToBreak;
         }
@@ -562,16 +548,7 @@ public final class PhatLoot implements ConfigurationSerializable {
         long time = getTimeRemaining(player);
         if (time > 0) {
             if (player != null && PhatLootsConfig.mobTimeRemaining != null) {
-                long days = time / DateUtils.MILLIS_PER_DAY;
-                long hours = time / DateUtils.MILLIS_PER_HOUR - days * 24;
-                long minutes = time / DateUtils.MILLIS_PER_MINUTE - hours * 60;
-                long seconds = time / DateUtils.MILLIS_PER_SECOND - minutes * 60;
-                player.sendMessage(PhatLootsConfig.mobTimeRemaining
-                        .replace("<time_d>", days + " " + PhatLootsConfig.resetTimeDays)
-                        .replace("<time_h>", hours + " " + PhatLootsConfig.resetTimeHours)
-                        .replace("<time_m>", minutes + " " + PhatLootsConfig.resetTimeMinutes)
-                        .replace("<time_s>", seconds + " " + PhatLootsConfig.resetTimeSeconds)
-                );
+                player.sendMessage(PhatLootsConfig.mobTimeRemaining.replace("<time>", timeToString(time)));
             }
             return 0; //Drop no experience
         }
