@@ -6,6 +6,11 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldedit.world.World;
+import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
@@ -113,6 +118,15 @@ public class PhatLootsAPI {
         LinkedList<PhatLoot> phatLoots = PhatLoots.getPhatLoots(block, player);
         if (phatLoots.isEmpty()) {
             return false;
+        }
+
+        World wgWorld = BukkitAdapter.adapt(block.getLocation().getWorld());
+        ApplicableRegionSet applicableRegionSet = WorldGuard.getInstance().getPlatform().getRegionContainer().get(wgWorld).getApplicableRegions(BukkitAdapter.asBlockVector(block.getLocation()));
+        for (ProtectedRegion protectedRegion : applicableRegionSet.getRegions()) {
+            if (protectedRegion.getOwners().size() > 0 || protectedRegion.getMembers().getPlayers().size() > 0) {
+                //player.sendMessage("Loot cancelled because owned by player");
+                return false;
+            }
         }
 
         PhatLootChest plChest = PhatLootChest.getChest(block);
