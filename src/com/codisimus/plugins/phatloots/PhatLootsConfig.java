@@ -96,8 +96,7 @@ public class PhatLootsConfig {
         cancelIfRegionHasPlayerMember = config.getBoolean("CancelOpenIfRegionHasPlayerMember", true);
         cancelIfRegionHasGroupOwner = config.getBoolean("CancelOpenIfRegionHasGroupOwner", true);
         cancelIfRegionHasGroupMember = config.getBoolean("CancelOpenIfRegionHasGroupMember", true);
-        checkIfRegionHasOwnerOrMember = (cancelIfRegionHasPlayerOwner && cancelIfRegionHasPlayerMember && cancelIfRegionHasGroupOwner && cancelIfRegionHasGroupMember);
-
+        checkIfRegionHasOwnerOrMember = (cancelIfRegionHasPlayerOwner || cancelIfRegionHasPlayerMember || cancelIfRegionHasGroupOwner || cancelIfRegionHasGroupMember);
         ConfigurationSection section = config.getConfigurationSection("AutoLink");
         if (section != null) {
             for (String world : section.getKeys(false)) {
