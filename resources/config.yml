@@ -258,6 +258,12 @@ MinimumTierNotification: 100
 SetChestsAsUnlockable: true
 
 
+##Cancel chest open if it is inside a region with specified owner or member type.
+CancelOpenIfRegionHasPlayerOwner: true
+CancelOpenIfRegionHasGroupOwner: true
+CancelOpenIfRegionHasPlayerMember: true
+CancelOpenIfRegionHasGroupMember: true
+
 ##Set this to true if you want to use decimals for your money
 ##This would turn a range of 100-1275 to 1.00-12.75
 DivideMoneyAmountBy100: false

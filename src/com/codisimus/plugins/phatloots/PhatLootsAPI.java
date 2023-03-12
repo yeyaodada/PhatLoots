@@ -122,10 +122,16 @@ public class PhatLootsAPI {
 
         World wgWorld = BukkitAdapter.adapt(block.getLocation().getWorld());
         ApplicableRegionSet applicableRegionSet = WorldGuard.getInstance().getPlatform().getRegionContainer().get(wgWorld).getApplicableRegions(BukkitAdapter.asBlockVector(block.getLocation()));
-        for (ProtectedRegion protectedRegion : applicableRegionSet.getRegions()) {
-            if (protectedRegion.getOwners().size() > 0 || protectedRegion.getMembers().getPlayers().size() > 0) {
-                //player.sendMessage("Loot cancelled because owned by player");
-                return false;
+
+        if (PhatLootsConfig.checkIfRegionHasOwnerOrMember) {
+            for (ProtectedRegion protectedRegion : applicableRegionSet.getRegions()) {
+                if ((PhatLootsConfig.cancelIfRegionHasPlayerOwner && protectedRegion.getOwners().size() > 0) ||
+                        (PhatLootsConfig.cancelIfRegionHasPlayerMember && protectedRegion.getMembers().getPlayers().size() > 0) ||
+                        (PhatLootsConfig.cancelIfRegionHasGroupOwner && protectedRegion.getOwners().getGroups().size() > 0) ||
+                        (PhatLootsConfig.cancelIfRegionHasGroupMember && protectedRegion.getMembers().getGroups().size() > 0)) {
+                    //player.sendMessage("Loot cancelled because owned by player");
+                    return false;
+                }
             }
         }
 
