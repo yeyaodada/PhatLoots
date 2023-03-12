@@ -128,7 +128,7 @@ public class PhatLootsAPI {
                 if ((PhatLootsConfig.cancelIfRegionHasPlayerOwner && protectedRegion.getOwners().size() > 0)) {
                     return false;
                 }
-                if (PhatLootsConfig.cancelIfRegionHasPlayerMember && protectedRegion.getMembers().getPlayers().size() > 0) {
+                if (PhatLootsConfig.cancelIfRegionHasPlayerMember && protectedRegion.getMembers().size() > 0) {
                     return false;
                 }
                 if (PhatLootsConfig.cancelIfRegionHasGroupOwner && protectedRegion.getOwners().getGroups().size() > 0) {
