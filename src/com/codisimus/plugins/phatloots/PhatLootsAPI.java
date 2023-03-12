@@ -125,16 +125,16 @@ public class PhatLootsAPI {
 
         if (PhatLootsConfig.checkIfRegionHasOwnerOrMember) {
             for (ProtectedRegion protectedRegion : applicableRegionSet.getRegions()) {
-                if ((PhatLootsConfig.cancelIfRegionHasPlayerOwner && protectedRegion.getOwners().size() > 0)) {
+                if ((PhatLootsConfig.cancelIfRegionHasPlayerOwner && protectedRegion.getOwners().getPlayerDomain().size() > 0)) {
                     return false;
                 }
-                if (PhatLootsConfig.cancelIfRegionHasPlayerMember && protectedRegion.getMembers().size() > 0) {
+                if (PhatLootsConfig.cancelIfRegionHasPlayerMember && protectedRegion.getMembers().getPlayerDomain().size() > 0) {
                     return false;
                 }
-                if (PhatLootsConfig.cancelIfRegionHasGroupOwner && protectedRegion.getOwners().getGroups().size() > 0) {
+                if (PhatLootsConfig.cancelIfRegionHasGroupOwner && protectedRegion.getOwners().getGroupDomain().size() > 0) {
                     return false;
                 }
-                if (PhatLootsConfig.cancelIfRegionHasGroupMember && protectedRegion.getMembers().getGroups().size() > 0) {
+                if (PhatLootsConfig.cancelIfRegionHasGroupMember && protectedRegion.getMembers().getGroupDomain().size() > 0) {
                     return false;
                 }
             }
