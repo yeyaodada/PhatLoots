@@ -1,5 +1,6 @@
 package com.codisimus.plugins.phatloots;
 
+import com.codisimus.plugins.phatloots.hook.PluginHookManager;
 import com.codisimus.plugins.phatloots.loot.LootBundle;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -120,26 +121,9 @@ public class PhatLootsAPI {
             return false;
         }
 
-        World wgWorld = BukkitAdapter.adapt(block.getLocation().getWorld());
-        ApplicableRegionSet applicableRegionSet = WorldGuard.getInstance().getPlatform().getRegionContainer().get(wgWorld).getApplicableRegions(BukkitAdapter.asBlockVector(block.getLocation()));
-
-        if (PhatLootsConfig.checkIfRegionHasOwnerOrMember) {
-            for (ProtectedRegion protectedRegion : applicableRegionSet.getRegions()) {
-                if ((PhatLootsConfig.cancelIfRegionHasPlayerOwner && protectedRegion.getOwners().getPlayerDomain().size() > 0)) {
-                    return false;
-                }
-                if (PhatLootsConfig.cancelIfRegionHasPlayerMember && protectedRegion.getMembers().getPlayerDomain().size() > 0) {
-                    return false;
-                }
-                if (PhatLootsConfig.cancelIfRegionHasGroupOwner && protectedRegion.getOwners().getGroupDomain().size() > 0) {
-                    return false;
-                }
-                if (PhatLootsConfig.cancelIfRegionHasGroupMember && protectedRegion.getMembers().getGroupDomain().size() > 0) {
-                    return false;
-                }
-            }
+        if (!PhatLoots.plugin.getPluginHookManager().getWorldGuardManager().isRegionLootableIfOwnerOrMembers(block)) {
+            return false;
         }
-
         PhatLootChest plChest = PhatLootChest.getChest(block);
 
         //Roll for Loot of each linked PhatLoot
