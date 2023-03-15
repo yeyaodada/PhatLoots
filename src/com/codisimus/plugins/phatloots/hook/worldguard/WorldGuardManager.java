@@ -16,7 +16,7 @@ public class WorldGuardManager {
 
     public WorldGuardManager(PhatLoots plugin) {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
-        if (pluginManager.getPlugin("Worldguard") != null) {
+        if (pluginManager.getPlugin("WorldGuard") != null) {
             worldGuardPlugin = WorldGuard.getInstance();
         }
     }

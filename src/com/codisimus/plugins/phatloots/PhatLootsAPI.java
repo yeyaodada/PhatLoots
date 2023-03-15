@@ -1,19 +1,13 @@
 package com.codisimus.plugins.phatloots;
 
-import com.codisimus.plugins.phatloots.hook.PluginHookManager;
 import com.codisimus.plugins.phatloots.loot.LootBundle;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldedit.world.World;
-import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.protection.ApplicableRegionSet;
-import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 
 /**
  * API for the PhatLoots plugin
