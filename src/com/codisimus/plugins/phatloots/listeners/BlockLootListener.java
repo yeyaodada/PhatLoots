@@ -1,6 +1,7 @@
 package com.codisimus.plugins.phatloots.listeners;
 
 import org.bukkit.GameMode;
+import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,11 +23,12 @@ public class BlockLootListener implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
+        Block block = event.getBlock();
         if (player.getGameMode() == GameMode.CREATIVE)
             return; // don't drop blocks if player is in creative mode
 
         // Used namespaced name here just to prevent possible compatibility issues
-        PhatLoot phatLoot = PhatLoots.getPhatLoot("minecraft-" + event.getBlock().getType().name().toLowerCase());
+        PhatLoot phatLoot = PhatLoots.getPhatLoot("minecraft-" + block.getType().name().toLowerCase());
         if (phatLoot == null)
             return;
 
@@ -38,7 +40,7 @@ public class BlockLootListener implements Listener {
         LootBundle bundle = phatLoot.rollForLoot(enchantBonus);
         event.setExpToDrop(bundle.getExp());
         event.setDropItems(false);
-        bundle.getItemList().forEach(item -> player.getWorld().dropItemNaturally(event.getBlock().getLocation(), item));
+        bundle.getItemList().forEach(item -> player.getWorld().dropItemNaturally(block.getLocation(), item));
         bundle.getCommandList().forEach(command -> command.execute(player));
     }
 }

@@ -63,6 +63,12 @@ public class PhatLootsConfig {
     public static boolean replaceBlockLoot;
     public static boolean blockLootEnchantBonus;
 
+    public static boolean cancelIfRegionHasPlayerOwner;
+    public static boolean cancelIfRegionHasPlayerMember;
+    public static boolean cancelIfRegionHasGroupOwner;
+    public static boolean cancelIfRegionHasGroupMember;
+    public static boolean checkIfRegionHasOwnerOrMember;
+
     public static String tierPrefix;
 
     public static void load() {
@@ -85,6 +91,12 @@ public class PhatLootsConfig {
                 PhatLoots.types.put(mat, null);
             }
         }
+
+        cancelIfRegionHasPlayerOwner = config.getBoolean("CancelOpenIfRegionHasPlayerOwner", true);
+        cancelIfRegionHasPlayerMember = config.getBoolean("CancelOpenIfRegionHasPlayerMember", true);
+        cancelIfRegionHasGroupOwner = config.getBoolean("CancelOpenIfRegionHasGroupOwner", true);
+        cancelIfRegionHasGroupMember = config.getBoolean("CancelOpenIfRegionHasGroupMember", true);
+        checkIfRegionHasOwnerOrMember = (cancelIfRegionHasPlayerOwner || cancelIfRegionHasPlayerMember || cancelIfRegionHasGroupOwner || cancelIfRegionHasGroupMember);
         ConfigurationSection section = config.getConfigurationSection("AutoLink");
         if (section != null) {
             for (String world : section.getKeys(false)) {

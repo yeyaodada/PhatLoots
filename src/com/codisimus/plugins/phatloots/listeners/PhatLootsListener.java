@@ -1,7 +1,13 @@
 package com.codisimus.plugins.phatloots.listeners;
 
 import com.codisimus.plugins.phatloots.*;
+import com.codisimus.plugins.phatloots.regions.WorldGuardRegionHook;
 import com.codisimus.plugins.phatloots.util.PhatLootsUtil;
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldedit.world.World;
+import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
@@ -31,7 +37,6 @@ public class PhatLootsListener implements Listener {
         if (!event.hasBlock() || event.getHand() != EquipmentSlot.HAND) {
             return;
         }
-
         boolean autoSpill = false;
         switch (event.getAction()) {
         case RIGHT_CLICK_BLOCK:

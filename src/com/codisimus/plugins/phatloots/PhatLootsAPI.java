@@ -1,13 +1,13 @@
 package com.codisimus.plugins.phatloots;
 
 import com.codisimus.plugins.phatloots.loot.LootBundle;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 
 /**
  * API for the PhatLoots plugin
@@ -115,6 +115,9 @@ public class PhatLootsAPI {
             return false;
         }
 
+        if (!PhatLoots.plugin.getPluginHookManager().getWorldGuardManager().isRegionLootableIfOwnerOrMembers(block)) {
+            return false;
+        }
         PhatLootChest plChest = PhatLootChest.getChest(block);
 
         //Roll for Loot of each linked PhatLoot
