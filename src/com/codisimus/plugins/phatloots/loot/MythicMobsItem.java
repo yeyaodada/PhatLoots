@@ -4,7 +4,7 @@ import com.codisimus.plugins.phatloots.PhatLoot;
 import com.codisimus.plugins.phatloots.PhatLoots;
 import com.codisimus.plugins.phatloots.util.PhatLootsUtil;
 import com.codisimus.plugins.phatloots.gui.Tool;
-import io.lumine.xikage.mythicmobs.MythicMobs;
+import io.lumine.mythic.bukkit.MythicBukkit;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.serialization.SerializableAs;
@@ -87,9 +87,11 @@ public class MythicMobsItem extends Loot {
     @Override
     public void getLoot(LootBundle lootBundle, double lootingBonus) {
         int amount = PhatLootsUtil.rollForInt(amountLower, amountUpper);
-        ItemStack item = MythicMobs.inst().getItemManager().getItemStack(itemId).clone();
-        item.setAmount(amount);
-        lootBundle.addItem(item);
+        try (MythicBukkit inst = MythicBukkit.inst()) {
+            ItemStack item = inst.getItemManager().getItemStack(itemId).clone();
+            item.setAmount(amount);
+            lootBundle.addItem(item);
+        }
     }
 
     /**
