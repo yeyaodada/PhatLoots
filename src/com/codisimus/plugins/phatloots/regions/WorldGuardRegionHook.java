@@ -4,10 +4,9 @@ import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.world.World;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
-import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,7 +30,7 @@ public class WorldGuardRegionHook implements RegionHook {
             return regionNames;
         World world = BukkitAdapter.adapt(bukkitWorld);
         ApplicableRegionSet applicableRegionSet = WorldGuard.getInstance().getPlatform().getRegionContainer().get(world).getApplicableRegions(BukkitAdapter.asBlockVector(loc));
-        Set<ProtectedRegion> regionSet = applicableRegionSet.getRegions();
+        Set<ProtectedRegion> regionSet = new HashSet<>(applicableRegionSet.getRegions());
 
         //Eliminate all parent Regions
         for (ProtectedRegion protectedRegion : applicableRegionSet) {
