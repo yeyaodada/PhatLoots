@@ -4,16 +4,13 @@ import com.codisimus.plugins.phatloots.conditions.LootCondition;
 import com.codisimus.plugins.phatloots.events.*;
 import com.codisimus.plugins.phatloots.loot.*;
 import java.io.*;
-import java.time.Clock;
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalUnit;
 import java.util.*;
 import java.util.logging.Level;
-import java.util.stream.Collectors;
 
 import com.codisimus.plugins.phatloots.util.PhatLootsUtil;
 import net.milkbowl.vault.economy.EconomyResponse;
@@ -62,7 +59,7 @@ public final class PhatLoot implements ConfigurationSerializable {
 
     public String name; //A unique name for the PhatLoot
     public List<Loot> lootList; //List of Loot
-    private List<LootCondition> lootConditions = new ArrayList<>(); // Map of Loot conditions
+    private final List<LootCondition> lootConditions = new ArrayList<>(); // Map of Loot conditions
 
     public int days; //Reset time (will never reset if any are negative)
     public int hours;
@@ -72,8 +69,8 @@ public final class PhatLoot implements ConfigurationSerializable {
     public boolean round;
     public boolean autoLoot;
     public boolean breakAndRespawn;
-    private Set<PhatLootChest> chests = new HashSet<>(); //Set of Chests linked to this PhatLoot
-    private Properties lootTimes = new Properties(); //PhatLootChest'PlayerName=Year'Day'Hour'Minute'Second
+    private final Set<PhatLootChest> chests = new HashSet<>(); //Set of Chests linked to this PhatLoot
+    private final Properties lootTimes = new Properties(); //PhatLootChest'PlayerName=Year'Day'Hour'Minute'Second
 
     /**
      * Constructs a new PhatLoot
@@ -355,6 +352,9 @@ public final class PhatLoot implements ConfigurationSerializable {
 
         //Do money transactions
         double money = lootBundle.getMoney();
+        if (decimals) {
+            money /= 100;
+        }
         if (money > 0) { //Reward
             if (PhatLoots.econ != null) {
                 EconomyResponse r = PhatLoots.econ.depositPlayer(player, money);
@@ -533,10 +533,10 @@ public final class PhatLoot implements ConfigurationSerializable {
 
         if (replaceMobLoot) {
             //Remove each item from the drops
-            Iterator itr = drops.iterator();
+            Iterator<ItemStack> itr = drops.iterator();
             while (itr.hasNext()) {
-                ItemStack item = (ItemStack) itr.next();
-                if (item.hasItemMeta() && item.getItemMeta().hasDisplayName()) {
+                ItemStack item = itr.next();
+                if (item.hasItemMeta() && item.getItemMeta() != null && item.getItemMeta().hasDisplayName()) {
                     //If the item has a custom name then it is most likely a PhatLoots item
                     continue;
                 }
@@ -1155,7 +1155,7 @@ public final class PhatLoot implements ConfigurationSerializable {
         //Save the config with UTF-8 encoding
         File file = new File(PhatLoots.dataFolder, "LootTables" + File.separator + name + ".yml");
         String data = config.saveToString();
-        try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8")) {
+        try (OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
             out.write(data, 0, data.length());
             out.flush();
         } catch (IOException ex) {
