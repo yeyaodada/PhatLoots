@@ -1145,7 +1145,7 @@ public final class PhatLoot implements ConfigurationSerializable {
 
     /**
      * Writes the Loot Tables of the PhatLoot to file.
-     * If there is an old file it is over written
+     * If there is an old file it is overwritten
      */
     public void save() {
         //Create a new config and populate it with this PhatLoot's information

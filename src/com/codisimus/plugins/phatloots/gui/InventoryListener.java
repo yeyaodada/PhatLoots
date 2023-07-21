@@ -12,6 +12,7 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -80,7 +81,7 @@ public class InventoryListener implements Listener {
      *
      * @param event The InventoryClickEvent which occurred
      */
-    @EventHandler (ignoreCancelled = true)
+    @EventHandler (ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerInvClick(InventoryClickEvent event) {
         HumanEntity human = event.getWhoClicked();
         if (!(human instanceof Player)) {
@@ -107,8 +108,7 @@ public class InventoryListener implements Listener {
             inPhatLoot = true;
 
         //Don't allow any inventory clicking
-        event.setResult(Event.Result.DENY);
-        player.updateInventory();
+        event.setCancelled(true);
 
         //Store popularly accessed variables
         PhatLoot phatLoot = infoViewers.get(playerUUID);

@@ -77,8 +77,7 @@ public class InventoryConditionListener implements Listener {
             return;
 
         // Don't allow any inventory clicking
-        event.setResult(Event.Result.DENY);
-        player.updateInventory();
+        event.setCancelled(true);
 
         // Store popularly accessed variables
         PhatLoot phatLoot = conditionViewers.get(player.getUniqueId());
