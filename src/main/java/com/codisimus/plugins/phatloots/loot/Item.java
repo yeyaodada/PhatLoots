@@ -95,6 +95,8 @@ public class Item extends Loot {
     };
     /* MATERIALS */
     private static final EnumSet<Material> ARMOR_MATERIAL_SET = EnumSet.of(
+        Material.NETHERITE_HELMET, Material.NETHERITE_CHESTPLATE,
+        Material.NETHERITE_LEGGINGS, Material.NETHERITE_BOOTS,
         Material.DIAMOND_HELMET, Material.DIAMOND_CHESTPLATE,
         Material.DIAMOND_LEGGINGS, Material.DIAMOND_BOOTS,
         Material.IRON_HELMET, Material.IRON_CHESTPLATE,
@@ -104,27 +106,28 @@ public class Item extends Loot {
         Material.CHAINMAIL_HELMET, Material.CHAINMAIL_CHESTPLATE,
         Material.CHAINMAIL_LEGGINGS, Material.CHAINMAIL_BOOTS,
         Material.LEATHER_HELMET, Material.LEATHER_CHESTPLATE,
-        Material.LEATHER_LEGGINGS, Material.LEATHER_BOOTS
+        Material.LEATHER_LEGGINGS, Material.LEATHER_BOOTS,
+        Material.TURTLE_HELMET
     );
     private static final EnumSet<Material> SWORD_MATERIAL_SET = EnumSet.of(
-        Material.DIAMOND_SWORD, Material.IRON_SWORD, Material.GOLDEN_SWORD,
-        Material.STONE_SWORD, Material.WOODEN_SWORD
+        Material.NETHERITE_SWORD, Material.DIAMOND_SWORD, Material.IRON_SWORD,
+        Material.GOLDEN_SWORD, Material.STONE_SWORD, Material.WOODEN_SWORD
     );
     private static final EnumSet<Material> AXE_MATERIAL_SET = EnumSet.of(
-        Material.DIAMOND_AXE, Material.IRON_AXE, Material.GOLDEN_AXE,
-        Material.STONE_AXE, Material.WOODEN_AXE
+        Material.NETHERITE_AXE, Material.DIAMOND_AXE, Material.IRON_AXE,
+        Material.GOLDEN_AXE, Material.STONE_AXE, Material.WOODEN_AXE
     );
     private static final EnumSet<Material> PICKAXE_MATERIAL_SET = EnumSet.of(
-        Material.DIAMOND_PICKAXE, Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE,
-        Material.STONE_PICKAXE, Material.WOODEN_PICKAXE
+        Material.NETHERITE_PICKAXE, Material.DIAMOND_PICKAXE, Material.IRON_PICKAXE,
+        Material.GOLDEN_PICKAXE, Material.STONE_PICKAXE, Material.WOODEN_PICKAXE
     );
     private static final EnumSet<Material> SPADE_MATERIAL_SET = EnumSet.of(
-        Material.DIAMOND_SHOVEL, Material.IRON_SHOVEL, Material.GOLDEN_SHOVEL,
-        Material.STONE_SHOVEL, Material.WOODEN_SHOVEL
+        Material.NETHERITE_SHOVEL, Material.DIAMOND_SHOVEL, Material.IRON_SHOVEL,
+        Material.GOLDEN_SHOVEL, Material.STONE_SHOVEL, Material.WOODEN_SHOVEL
     );
     private static final EnumSet<Material> HOE_MATERIAL_SET = EnumSet.of(
-        Material.DIAMOND_HOE, Material.IRON_HOE, Material.GOLDEN_HOE,
-        Material.STONE_HOE, Material.WOODEN_HOE
+        Material.NETHERITE_HOE, Material.DIAMOND_HOE, Material.IRON_HOE,
+        Material.GOLDEN_HOE, Material.STONE_HOE, Material.WOODEN_HOE
     );
     public static int tierNotify;
     public static FileConfiguration loreConfig;
@@ -472,7 +475,7 @@ public class Item extends Loot {
             }
 
             //Set the new display name of the item
-            meta.setDisplayName(nameBuilder.toString());
+            meta.setDisplayName(ChatColor.RESET + nameBuilder.toString());
             clone.setItemMeta(meta);
         }
 

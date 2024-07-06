@@ -139,7 +139,7 @@ public class LootCommand {
     )
     public boolean link(Player player, PhatLoot phatLoot) {
         //Cancel if the player is not targeting a correct Block
-        Block block  = player.getTargetBlock(EnumSet.of(Material.AIR, Material.CAVE_AIR, Material.VOID_AIR), 10);
+        Block block  = player.getTargetBlock(null, 10);
         String blockName = PhatLootsUtil.getBlockName(block);
         if (!PhatLootsUtil.isLinkableType(block)) {
             player.sendMessage("§6" + blockName + "§4 is not a linkable type.");
@@ -278,7 +278,7 @@ public class LootCommand {
         permission = "phatloots.unlink"
     )
     public boolean unlink(Player player, PhatLoot phatLoot) {
-        Block block = player.getTargetBlock(EnumSet.of(Material.AIR, Material.CAVE_AIR, Material.VOID_AIR), 10);
+        Block block = player.getTargetBlock(null, 10);
         phatLoot.removeChest(block);
         player.sendMessage("§5Target §6" + PhatLootsUtil.getBlockName(block) + "§5 has been unlinked from PhatLoot §6" + phatLoot.name);
         phatLoot.saveChests();
@@ -772,8 +772,8 @@ public class LootCommand {
         permission = "phatloots.reset"
     )
     public boolean reset(Player player) {
-        Block block = player.getTargetBlock(EnumSet.noneOf(Material.class), 10);
-        for (PhatLoot phatLoot : PhatLootsUtil.getPhatLoots(player)) {
+        Block block = player.getTargetBlock(null, 10);
+        for (PhatLoot phatLoot : PhatLootsUtil.getPhatLoots(player, block)) {
             phatLoot.reset(block);
             player.sendMessage("§5Target §6" + PhatLootsUtil.getBlockName(block) + "§5 has been reset.");
         }
@@ -809,8 +809,8 @@ public class LootCommand {
         permission = "phatloots.clean"
     )
     public boolean clean(Player player) {
-        Block block = player.getTargetBlock(EnumSet.noneOf(Material.class), 10);
-        for (PhatLoot phatLoot : PhatLootsUtil.getPhatLoots(player)) {
+        Block block = player.getTargetBlock(null, 10);
+        for (PhatLoot phatLoot : PhatLootsUtil.getPhatLoots(player, block)) {
             phatLoot.clean(block);
             player.sendMessage("§5Target §6" + PhatLootsUtil.getBlockName(block) + "§5 has been cleaned.");
         }

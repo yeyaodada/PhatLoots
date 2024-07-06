@@ -7,6 +7,8 @@ import com.codisimus.plugins.phatloots.loot.Item;
 import com.codisimus.plugins.phatloots.loot.LootCollection;
 import java.io.File;
 import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.logging.Level;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -71,6 +73,8 @@ public class PhatLootsConfig {
 
     public static String tierPrefix;
 
+    private static boolean configDirty;
+
     public static void load() {
         FileConfiguration config = PhatLoots.plugin.getConfig();
 
@@ -92,10 +96,10 @@ public class PhatLootsConfig {
             }
         }
 
-        cancelIfRegionHasPlayerOwner = config.getBoolean("CancelOpenIfRegionHasPlayerOwner", true);
-        cancelIfRegionHasPlayerMember = config.getBoolean("CancelOpenIfRegionHasPlayerMember", true);
-        cancelIfRegionHasGroupOwner = config.getBoolean("CancelOpenIfRegionHasGroupOwner", true);
-        cancelIfRegionHasGroupMember = config.getBoolean("CancelOpenIfRegionHasGroupMember", true);
+        cancelIfRegionHasPlayerOwner = getOrRun(config, "CancelOpenIfRegionHasPlayerOwner", true, config::getBoolean, config::set);
+        cancelIfRegionHasPlayerMember = getOrRun(config, "CancelOpenIfRegionHasPlayerMember", true, config::getBoolean, config::set);
+        cancelIfRegionHasGroupOwner = getOrRun(config, "CancelOpenIfRegionHasGroupOwner", true, config::getBoolean, config::set);
+        cancelIfRegionHasGroupMember = getOrRun(config, "CancelOpenIfRegionHasGroupMember", true, config::getBoolean, config::set);
         checkIfRegionHasOwnerOrMember = (cancelIfRegionHasPlayerOwner || cancelIfRegionHasPlayerMember || cancelIfRegionHasGroupOwner || cancelIfRegionHasGroupMember);
         ConfigurationSection section = config.getConfigurationSection("AutoLink");
         if (section != null) {
@@ -238,6 +242,10 @@ public class PhatLootsConfig {
         PhatLoots.autoSavePeriod = config.getInt("AutoSavePeriod") * 20L;
         PhatLootsListener.autoBreakOnPunch = config.getBoolean("AutoBreakOnPunch");
 
+        if (configDirty) {
+            PhatLoots.plugin.saveConfig();
+            PhatLoots.logger.info("Config file has been updated with new values.");
+        }
         
         /* LORES.YML */
 
@@ -295,5 +303,16 @@ public class PhatLootsConfig {
     private static String getString(ConfigurationSection config, String key) {
         String string = ChatColor.translateAlternateColorCodes('&', config.getString(key));
         return string.isEmpty() ? null : string;
+    }
+
+    private static <T> T getOrRun(ConfigurationSection section, String location, T defaultValue, Function<String, T> getter, BiConsumer<String, T> consumer) {
+        if (!section.contains(location, true)) {
+            consumer.accept(location, defaultValue);
+            configDirty = true;
+
+            return defaultValue;
+        }
+
+        return getter.apply(location);
     }
 }

@@ -113,7 +113,7 @@ public class PhatLootsUtil {
         //Return the Display name of the item if there is one
         if (item.hasItemMeta()) {
             String name = item.getItemMeta().getDisplayName();
-            if (name != null && !name.isEmpty()) {
+            if (!name.isEmpty()) {
                 return name;
             }
         }
@@ -187,9 +187,20 @@ public class PhatLootsUtil {
      * @return The LinkedList of PhatLoots
      */
     public static LinkedList<PhatLoot> getPhatLoots(Player player) {
+        Block block = player.getTargetBlock(null, 10);
+        return getPhatLoots(player, block);
+    }
+
+    /**
+     * Returns a LinkedList of PhatLoots that are linked to the target Block
+     *
+     * @param player The Player targeting a Block
+     * @param block The Block that the Player is targeting
+     * @return The LinkedList of PhatLoots
+     */
+    public static LinkedList<PhatLoot> getPhatLoots(Player player, Block block) {
         LinkedList<PhatLoot> phatLoots = new LinkedList<>();
         //Cancel if the sender is not targeting a correct Block
-        Block block = player.getTargetBlock(EnumSet.of(Material.AIR, Material.CAVE_AIR, Material.VOID_AIR), 10);
         String blockName = PhatLootsUtil.getBlockName(block);
         if (!PhatLootsUtil.isLinkableType(block)) {
             player.sendMessage("§6" + blockName + "§4 is not a linkable type.");

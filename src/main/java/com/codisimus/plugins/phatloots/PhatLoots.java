@@ -84,6 +84,8 @@ public class PhatLoots extends JavaPlugin {
         dataFolder = dir.getPath();
 
         dir = new File(dataFolder, "LootTables");
+        boolean lootTablesExists = dir.exists();
+
         if (!dir.isDirectory()) {
             dir.mkdir();
         }
@@ -99,18 +101,10 @@ public class PhatLoots extends JavaPlugin {
         }
 
         //Save SampleLoot.yml if it does not exist
-        File file = new File(dataFolder, "LootTables" + File.separator + "SampleLoot.yml");
-        if (!file.exists()) {
-            try (InputStream inputStream = this.getResource("SampleLoot.yml")) {
-                try (OutputStream outputStream = new FileOutputStream(file)) {
-                    int read;
-                    byte[] bytes = new byte[1024];
-
-                    while ((read = inputStream.read(bytes)) != -1) {
-                        outputStream.write(bytes, 0, read);
-                    }
-                }
-            } catch (IOException ex) {
+        if (!lootTablesExists) {
+            try {
+                this.saveResource("LootTables/SampleLoot.yml", false);
+            } catch (Exception ex) {
                 logger.log(Level.WARNING, "Could not save resource: SampleLoot.yml", ex);
             }
         }

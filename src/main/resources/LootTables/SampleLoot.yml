@@ -14,16 +14,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: DIAMOND_SWORD
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 40.0
               Tiered: true
             - ==: Item
@@ -31,16 +31,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: DIAMOND_AXE
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 60.0
               Tiered: true
           LowerNumberOfLoots: 1
@@ -54,16 +54,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: IRON_SWORD
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 40.0
               Tiered: true
             - ==: Item
@@ -71,16 +71,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: IRON_AXE
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 60.0
               Tiered: true
           LowerNumberOfLoots: 1
@@ -94,16 +94,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: GOLDEN_SWORD
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 40.0
               Tiered: true
             - ==: Item
@@ -111,16 +111,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: GOLDEN_AXE
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 60.0
               Tiered: true
           LowerNumberOfLoots: 1
@@ -134,16 +134,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: STONE_SWORD
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 40.0
               Tiered: true
             - ==: Item
@@ -151,16 +151,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: STONE_AXE
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 60.0
               Tiered: true
           LowerNumberOfLoots: 1
@@ -174,16 +174,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: WOODEN_SWORD
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 40.0
               Tiered: true
             - ==: Item
@@ -191,16 +191,16 @@ SampleLoot:
               GenerateName: true
               ItemStack:
                 ==: org.bukkit.inventory.ItemStack
-                v: 3839
+                v: 3463
                 type: WOODEN_AXE
                 meta:
                   ==: ItemMeta
                   meta-type: UNSPECIFIC
                   lore:
-                    - '"<dam>"'
-                    - '"<holy>"'
-                    - '"<fire>"'
-                    - '"<bug>"'
+                    - '{"extra":[{"text":"<dam>"}],"text":""}'
+                    - '{"extra":[{"text":"<holy>"}],"text":""}'
+                    - '{"extra":[{"text":"<fire>"}],"text":""}'
+                    - '{"extra":[{"text":"<bug>"}],"text":""}'
               Probability: 60.0
               Tiered: true
           LowerNumberOfLoots: 1
@@ -222,17 +222,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -240,17 +240,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -258,17 +258,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -276,17 +276,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
               LowerNumberOfLoots: 0
@@ -300,17 +300,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -318,17 +318,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -336,17 +336,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -354,17 +354,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
               LowerNumberOfLoots: 0
@@ -378,17 +378,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -396,17 +396,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -414,17 +414,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -432,17 +432,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
               LowerNumberOfLoots: 0
@@ -456,17 +456,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -474,17 +474,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -492,17 +492,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -510,17 +510,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
               LowerNumberOfLoots: 0
@@ -534,17 +534,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -552,17 +552,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -570,17 +570,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
                 - ==: Item
@@ -588,17 +588,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 100.0
                   Tiered: true
               LowerNumberOfLoots: 0
@@ -618,17 +618,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 1.0
                   Tiered: true
                 - ==: Item
@@ -636,17 +636,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 9.0
                   Tiered: true
                 - ==: Item
@@ -654,17 +654,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 15.0
                   Tiered: true
                 - ==: Item
@@ -672,17 +672,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 25.0
                   Tiered: true
                 - ==: Item
@@ -690,17 +690,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_HELMET
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 50.0
                   Tiered: true
               LowerNumberOfLoots: 1
@@ -714,17 +714,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 1.0
                   Tiered: true
                 - ==: Item
@@ -732,17 +732,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 9.0
                   Tiered: true
                 - ==: Item
@@ -750,17 +750,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 15.0
                   Tiered: true
                 - ==: Item
@@ -768,17 +768,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 25.0
                   Tiered: true
                 - ==: Item
@@ -786,17 +786,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_CHESTPLATE
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 50.0
                   Tiered: true
               LowerNumberOfLoots: 1
@@ -810,17 +810,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 1.0
                   Tiered: true
                 - ==: Item
@@ -828,17 +828,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 9.0
                   Tiered: true
                 - ==: Item
@@ -846,17 +846,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 15.0
                   Tiered: true
                 - ==: Item
@@ -864,17 +864,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 25.0
                   Tiered: true
                 - ==: Item
@@ -882,17 +882,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_LEGGINGS
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 50.0
                   Tiered: true
               LowerNumberOfLoots: 1
@@ -906,17 +906,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: DIAMOND_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 1.0
                   Tiered: true
                 - ==: Item
@@ -924,17 +924,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: IRON_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 9.0
                   Tiered: true
                 - ==: Item
@@ -942,17 +942,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: GOLDEN_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 15.0
                   Tiered: true
                 - ==: Item
@@ -960,17 +960,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: CHAINMAIL_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 25.0
                   Tiered: true
                 - ==: Item
@@ -978,17 +978,17 @@ SampleLoot:
                   GenerateName: true
                   ItemStack:
                     ==: org.bukkit.inventory.ItemStack
-                    v: 3839
+                    v: 3463
                     type: LEATHER_BOOTS
                     meta:
                       ==: ItemMeta
                       meta-type: COLORABLE_ARMOR
                       lore:
-                        - '"<def>"'
-                        - '"<rangedef>"'
-                        - '"<firedef>"'
-                        - '"<blastdef>"'
-                        - '"<falldef>"'
+                        - '{"extra":[{"text":"<def>"}],"text":""}'
+                        - '{"extra":[{"text":"<rangedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<firedef>"}],"text":""}'
+                        - '{"extra":[{"text":"<blastdef>"}],"text":""}'
+                        - '{"extra":[{"text":"<falldef>"}],"text":""}'
                   Probability: 50.0
                   Tiered: true
               LowerNumberOfLoots: 1
