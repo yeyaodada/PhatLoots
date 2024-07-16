@@ -479,7 +479,7 @@ public final class PhatLoot implements ConfigurationSerializable {
             }
         } else if (!itemList.isEmpty()) { //Loot did not fit in the Player's Inventory
             //Fill the inventory with items
-            chest.addItems(itemList, player, inv);
+            chest.addItems(itemList, player, inv, event.shouldShuffleLoot());
 
             //Open the Inventory if it is not already open
             if (player.getOpenInventory().getTopInventory() != inv) {

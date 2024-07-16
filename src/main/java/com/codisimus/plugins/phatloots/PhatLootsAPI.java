@@ -1,8 +1,13 @@
 package com.codisimus.plugins.phatloots;
 
 import com.codisimus.plugins.phatloots.loot.LootBundle;
+import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -138,6 +143,27 @@ public class PhatLootsAPI {
             plChest.breakChest(player, plChest.getResetTime(phatLoots));
         }
         return true;
+    }
+
+    /**
+     * Links the given ItemStack to the given PhatLoot
+     *
+     * @param item The ItemStack to link
+     * @param phatLoot The PhatLoot to link the ItemStack to
+     */
+    public static void link(ItemStack item, PhatLoot phatLoot) {
+        if (PhatLootsConfig.persistentDataContainerLinks) {
+            ItemMeta meta = item.getItemMeta();
+            PersistentDataContainer itemTagContainer = meta.getPersistentDataContainer();
+            itemTagContainer.set(PhatLoot.LINK_TAG, PersistentDataType.STRING, phatLoot.name);
+            item.setItemMeta(meta);
+        } else {
+            ItemMeta meta = item.hasItemMeta() ? item.getItemMeta() : Bukkit.getItemFactory().getItemMeta(item.getType());
+            List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
+            lore.add(PhatLootsConfig.lootBagKeys.get(0) + phatLoot.name);
+            meta.setLore(lore);
+            item.setItemMeta(meta);
+        }
     }
 
     /**

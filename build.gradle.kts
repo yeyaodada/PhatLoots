@@ -9,7 +9,7 @@ plugins {
 val supportedVersions = listOf("1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6", "1.21")
 
 group = "com.codisimus.plugins"
-version = "5.6.1"
+version = "5.6.2"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
@@ -25,6 +25,8 @@ repositories {
     maven("https://repo.codemc.io/repository/maven-public")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://mvn.lumine.io/repository/maven-public/")
+    maven("https://repo.battleplugins.org/releases/")
+    maven("https://repo.battleplugins.org/snapshots/")
 }
 
 dependencies {
@@ -39,6 +41,7 @@ dependencies {
     compileOnly(libs.mythicdrops)
     compileOnly(libs.placeholder.api)
     compileOnly(libs.mythicmobs)
+    compileOnly(libs.battlearena)
 
     // Shaded libs
     implementation(libs.bstats.bukkit)

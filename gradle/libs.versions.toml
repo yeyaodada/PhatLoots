@@ -9,6 +9,7 @@ mythicdrops = "8.4.8"
 placeholder-api = "2.11.3"
 mythicmobs = "5.2.1"
 bstats-bukkit = "2.2.1"
+battlearena = "4.0.0-SNAPSHOT"
 
 [libraries]
 paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper-api" }
@@ -21,3 +22,4 @@ mythicdrops = { group = "io.pixeloutlaw", name = "mythicdrops", version.ref = "m
 placeholder-api = { group = "me.clip", name = "placeholderapi", version.ref = "placeholder-api" }
 mythicmobs = { group = "io.lumine", name = "Mythic-Dist", version.ref = "mythicmobs" }
 bstats-bukkit = { group = "org.bstats", name = "bstats-bukkit", version.ref = "bstats-bukkit" }
+battlearena = { group = "org.battleplugins", name = "arena", version.ref = "battlearena" }

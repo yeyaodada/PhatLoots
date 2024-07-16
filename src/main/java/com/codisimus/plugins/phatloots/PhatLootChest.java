@@ -409,6 +409,18 @@ public class PhatLootChest {
      * @param inventory The Inventory to add the items to
      */
     public void addItems(Collection<ItemStack> itemList, Player player, Inventory inventory) {
+        addItems(itemList, player, inventory, shuffleLoot);
+    }
+
+    /**
+     * Adds the ItemStacks to the given Inventory
+     *
+     * @param itemList The Collection of ItemStacks to add
+     * @param player The Player looting the Chest
+     * @param inventory The Inventory to add the items to
+     * @param shuffleLoot Whether the loot should be shuffled
+     */
+    public void addItems(Collection<ItemStack> itemList, Player player, Inventory inventory, boolean shuffleLoot) {
         for (ItemStack item : itemList) {
             addItem(item, player, inventory);
         }

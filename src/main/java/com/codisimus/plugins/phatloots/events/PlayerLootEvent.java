@@ -16,6 +16,7 @@ public class PlayerLootEvent extends LootEvent {
     private final Player looter;
     private final PhatLoot phatLoot;
     private final PhatLootChest chest;
+    private boolean shuffleLoot = false;
 
     /**
      * Creates a new event with the given data
@@ -66,5 +67,23 @@ public class PlayerLootEvent extends LootEvent {
      */
     public PhatLootChest getChest() {
         return chest;
+    }
+
+    /**
+     * Returns true if the loot should be shuffled
+     *
+     * @return true if the loot should be shuffled
+     */
+    public boolean shouldShuffleLoot() {
+        return shuffleLoot;
+    }
+
+    /**
+     * Sets whether the loot should be shuffled
+     *
+     * @param shuffleLoot true if the loot should be shuffled
+     */
+    public void setShuffleLoot(boolean shuffleLoot) {
+        this.shuffleLoot = shuffleLoot;
     }
 }

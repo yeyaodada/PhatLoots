@@ -6,7 +6,7 @@ author: Codisimus
 authors: [Redned]
 description: Chests with randomly generated money/items
 load: POSTWORLD
-softdepend: [Vault, MythicDrops, WorldGuard, Votifier, Multiverse-Core, PlaceholderAPI, WorldEdit, Citizens]
+softdepend: [Vault, MythicDrops, WorldGuard, Votifier, Multiverse-Core, PlaceholderAPI, WorldEdit, Citizens, BattleArena]
 permissions:
   phatloots.loot.*:
     description: Needed to receive loots from any restricted PhatLoot

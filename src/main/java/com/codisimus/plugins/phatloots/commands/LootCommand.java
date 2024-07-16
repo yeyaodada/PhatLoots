@@ -2,6 +2,7 @@ package com.codisimus.plugins.phatloots.commands;
 
 import com.codisimus.plugins.phatloots.PhatLoot;
 import com.codisimus.plugins.phatloots.PhatLoots;
+import com.codisimus.plugins.phatloots.PhatLootsAPI;
 import com.codisimus.plugins.phatloots.PhatLootsConfig;
 import com.codisimus.plugins.phatloots.commands.CommandHandler.CodCommand;
 import com.codisimus.plugins.phatloots.gui.InventoryListener;
@@ -112,19 +113,7 @@ public class LootCommand {
             return false;
         }
 
-        if (PhatLootsConfig.persistentDataContainerLinks) {
-            ItemMeta meta = item.getItemMeta();
-            PersistentDataContainer itemTagContainer = meta.getPersistentDataContainer();
-            itemTagContainer.set(PhatLoot.LINK_TAG, PersistentDataType.STRING, phatLoot.name);
-            item.setItemMeta(meta);
-        } else {
-            ItemMeta meta = item.hasItemMeta() ? item.getItemMeta() : Bukkit.getItemFactory().getItemMeta(item.getType());
-            List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
-            lore.add(PhatLootsConfig.lootBagKeys.get(0) + phatLoot.name);
-            meta.setLore(lore);
-            item.setItemMeta(meta);
-        }
-
+        PhatLootsAPI.link(item, phatLoot);
         player.sendMessage("§6" + PhatLootsUtil.getItemName(item) + "§5 has been linked to PhatLoot §6" + phatLoot.name);
         return true;
     }
