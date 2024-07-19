@@ -3,10 +3,6 @@ package com.codisimus.plugins.phatloots.loot;
 import com.codisimus.plugins.phatloots.PhatLoot;
 import com.codisimus.plugins.phatloots.PhatLoots;
 import com.codisimus.plugins.phatloots.util.PhatLootsUtil;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -17,6 +13,17 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * An Item is the Loot representation of an ItemStack
@@ -94,7 +101,7 @@ public class Item extends Loot {
         Enchantment.DURABILITY, Enchantment.MENDING
     };
     /* MATERIALS */
-    private static final EnumSet<Material> ARMOR_MATERIAL_SET = EnumSet.of(
+    private static final Set<Material> ARMOR_MATERIAL_SET = Set.of(
         Material.NETHERITE_HELMET, Material.NETHERITE_CHESTPLATE,
         Material.NETHERITE_LEGGINGS, Material.NETHERITE_BOOTS,
         Material.DIAMOND_HELMET, Material.DIAMOND_CHESTPLATE,
@@ -109,23 +116,23 @@ public class Item extends Loot {
         Material.LEATHER_LEGGINGS, Material.LEATHER_BOOTS,
         Material.TURTLE_HELMET
     );
-    private static final EnumSet<Material> SWORD_MATERIAL_SET = EnumSet.of(
+    private static final Set<Material> SWORD_MATERIAL_SET = Set.of(
         Material.NETHERITE_SWORD, Material.DIAMOND_SWORD, Material.IRON_SWORD,
         Material.GOLDEN_SWORD, Material.STONE_SWORD, Material.WOODEN_SWORD
     );
-    private static final EnumSet<Material> AXE_MATERIAL_SET = EnumSet.of(
+    private static final Set<Material> AXE_MATERIAL_SET = Set.of(
         Material.NETHERITE_AXE, Material.DIAMOND_AXE, Material.IRON_AXE,
         Material.GOLDEN_AXE, Material.STONE_AXE, Material.WOODEN_AXE
     );
-    private static final EnumSet<Material> PICKAXE_MATERIAL_SET = EnumSet.of(
+    private static final Set<Material> PICKAXE_MATERIAL_SET = Set.of(
         Material.NETHERITE_PICKAXE, Material.DIAMOND_PICKAXE, Material.IRON_PICKAXE,
         Material.GOLDEN_PICKAXE, Material.STONE_PICKAXE, Material.WOODEN_PICKAXE
     );
-    private static final EnumSet<Material> SPADE_MATERIAL_SET = EnumSet.of(
+    private static final Set<Material> SPADE_MATERIAL_SET = Set.of(
         Material.NETHERITE_SHOVEL, Material.DIAMOND_SHOVEL, Material.IRON_SHOVEL,
         Material.GOLDEN_SHOVEL, Material.STONE_SHOVEL, Material.WOODEN_SHOVEL
     );
-    private static final EnumSet<Material> HOE_MATERIAL_SET = EnumSet.of(
+    private static final Set<Material> HOE_MATERIAL_SET = Set.of(
         Material.NETHERITE_HOE, Material.DIAMOND_HOE, Material.IRON_HOE,
         Material.GOLDEN_HOE, Material.STONE_HOE, Material.WOODEN_HOE
     );

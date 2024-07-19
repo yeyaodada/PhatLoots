@@ -11,7 +11,6 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.World;
-import org.bukkit.WorldCreator;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Chest;
@@ -30,7 +29,16 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * A PhatLootChest is a Block location and a Map of Users with times attached to them
@@ -38,13 +46,13 @@ import java.util.*;
  * @author Codisimus
  */
 public class PhatLootChest {
-    private static Set<Material> untriggeredRedstone = EnumSet.of(
+    private static Set<Material> untriggeredRedstone = Set.of(
         Material.REDSTONE, Material.REDSTONE_WIRE, Material.COMPARATOR,
         Material.REDSTONE_LAMP, Material.REDSTONE_TORCH,
         Material.REPEATER, Material.DISPENSER, Material.DROPPER,
         Material.NOTE_BLOCK, Material.PISTON, Material.TNT
     );
-    private static EnumSet<Material> triggeredRedstone = EnumSet.of(
+    private static Set<Material> triggeredRedstone = Set.of(
         Material.REDSTONE_WIRE, Material.COMPARATOR,
         Material.REDSTONE_LAMP, Material.REDSTONE_TORCH,
         Material.REPEATER, Material.PISTON

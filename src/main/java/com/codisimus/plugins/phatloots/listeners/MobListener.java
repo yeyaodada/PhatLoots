@@ -73,21 +73,28 @@ public abstract class MobListener implements Listener {
         if (mobTypes) {
             switch (entity.getType()) {
             case ZOMBIFIED_PIGLIN:
-            case ZOMBIE: //'BabyVillager' | 'Baby' | 'Villager' | 'Normal'
+            case ZOMBIE:
                 Zombie zombie = (Zombie) entity;
-                if (zombie.isBaby()) {
-                    specificType = zombie.isVillager() ? "BabyVillager" : "Baby";
-                } else if (zombie.isVillager()) {
-                    specificType = "Villager";
+                if (!zombie.isAdult()) {
+                    specificType = "Baby";
                 } else {
                     specificType = "Normal";
                 }
                 break;
-            case SKELETON: //'Wither' | 'Normal'
-                specificType = toCamelCase(((Skeleton) entity).getSkeletonType());
+            case ZOMBIE_VILLAGER:
+                ZombieVillager zombieVillager = (ZombieVillager) entity;
+                if (!zombieVillager.isAdult()) {
+                    specificType = "Baby";
+                } else {
+                    specificType = "Normal";
+                }
                 break;
             case VILLAGER: //Profession
-                specificType = toCamelCase(((Villager) entity).getProfession());
+                Villager villager = (Villager) entity;
+                String professionName = villager.getProfession().getKey().getKey();
+
+                // Capitalize the first letter of the profession
+                specificType = toProperCase(professionName);
                 break;
             case CREEPER: //'Powered' | 'Normal'
                 Creeper creeper = (Creeper) entity;
@@ -95,24 +102,13 @@ public abstract class MobListener implements Listener {
                 break;
             case HORSE: //Color + Style (type is also determined by variant
                 Horse horse = (Horse) entity;
-                type = toCamelCase(horse.getVariant());
-                if (horse.getVariant() == Variant.HORSE) {
-                    specificType = toCamelCase(horse.getColor());
-                    switch (horse.getStyle()) {
-                    case WHITE_DOTS:
-                        specificType += "Spotted";
-                        break;
-                    case BLACK_DOTS:
-                        specificType += "Dark";
-                        break;
-                    case WHITE:
-                        specificType += "Light";
-                        break;
-                    case WHITEFIELD:
-                        specificType += "Milky";
-                        break;
-                    }
+                switch (horse.getStyle()) {
+                    case WHITE_DOTS -> specificType = "Spotted";
+                    case BLACK_DOTS -> specificType = "Dark";
+                    case WHITE -> specificType = "Light";
+                    case WHITEFIELD -> specificType = "Milky";
                 }
+
                 break;
             case SHEEP: //Color
                 Sheep sheep = (Sheep) entity;

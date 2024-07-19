@@ -1,26 +1,51 @@
 package com.codisimus.plugins.phatloots;
 
-import com.codisimus.plugins.phatloots.commands.*;
-import com.codisimus.plugins.phatloots.conditions.*;
+import com.codisimus.plugins.phatloots.commands.CommandHandler;
+import com.codisimus.plugins.phatloots.commands.LootCommand;
+import com.codisimus.plugins.phatloots.commands.ManageLootCommand;
+import com.codisimus.plugins.phatloots.commands.ManageMoneyLootCommand;
+import com.codisimus.plugins.phatloots.commands.ManageMythicDropsLootCommand;
+import com.codisimus.plugins.phatloots.commands.ManageMythicMobsLootCommand;
+import com.codisimus.plugins.phatloots.commands.VariableLootCommand;
+import com.codisimus.plugins.phatloots.conditions.BiomeCondition;
+import com.codisimus.plugins.phatloots.conditions.ExperienceCondition;
+import com.codisimus.plugins.phatloots.conditions.HealthCondition;
+import com.codisimus.plugins.phatloots.conditions.ItemCondition;
+import com.codisimus.plugins.phatloots.conditions.LootCondition;
+import com.codisimus.plugins.phatloots.conditions.PermissionCondition;
+import com.codisimus.plugins.phatloots.conditions.PlaceholderDataCondition;
+import com.codisimus.plugins.phatloots.conditions.RegionCondition;
+import com.codisimus.plugins.phatloots.conditions.TimeCondition;
+import com.codisimus.plugins.phatloots.conditions.WeatherCondition;
 import com.codisimus.plugins.phatloots.events.ChestRespawnEvent.RespawnReason;
 import com.codisimus.plugins.phatloots.gui.InventoryConditionListener;
 import com.codisimus.plugins.phatloots.gui.InventoryListener;
 import com.codisimus.plugins.phatloots.hook.PluginHookManager;
-import com.codisimus.plugins.phatloots.listeners.*;
-import com.codisimus.plugins.phatloots.loot.*;
+import com.codisimus.plugins.phatloots.listeners.BlockLootListener;
+import com.codisimus.plugins.phatloots.listeners.CitizensListener;
+import com.codisimus.plugins.phatloots.listeners.DispenserListener;
+import com.codisimus.plugins.phatloots.listeners.FishingListener;
+import com.codisimus.plugins.phatloots.listeners.LootBagListener;
+import com.codisimus.plugins.phatloots.listeners.LootingBonusListener;
+import com.codisimus.plugins.phatloots.listeners.MobDeathListener;
+import com.codisimus.plugins.phatloots.listeners.MobListener;
+import com.codisimus.plugins.phatloots.listeners.MobSpawnListener;
+import com.codisimus.plugins.phatloots.listeners.PhatLootsListener;
+import com.codisimus.plugins.phatloots.listeners.VoteListener;
+import com.codisimus.plugins.phatloots.loot.CommandLoot;
+import com.codisimus.plugins.phatloots.loot.Experience;
+import com.codisimus.plugins.phatloots.loot.Gem;
+import com.codisimus.plugins.phatloots.loot.Item;
+import com.codisimus.plugins.phatloots.loot.LootCollection;
+import com.codisimus.plugins.phatloots.loot.Message;
+import com.codisimus.plugins.phatloots.loot.Money;
+import com.codisimus.plugins.phatloots.loot.MythicDropsItem;
+import com.codisimus.plugins.phatloots.loot.MythicMobsItem;
+import com.codisimus.plugins.phatloots.loot.UnidentifiedItem;
 import com.codisimus.plugins.phatloots.regions.RegionHook;
 import com.codisimus.plugins.phatloots.regions.WorldGuardRegionHook;
 import com.codisimus.plugins.phatloots.util.PhatLootsUtil;
 import com.google.common.io.Files;
-import java.io.*;
-import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import net.milkbowl.vault.economy.Economy;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
@@ -30,8 +55,24 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.*;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.nio.ByteBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Loads Plugin and manages Data/Listeners/etc.
@@ -49,7 +90,7 @@ public class PhatLoots extends JavaPlugin {
     public static long autoSavePeriod;
     public static CommandHandler handler;
     public static final HashMap<String, RegionHook> regionHooks = new HashMap<>(); //Plugin Name -> RegionHook
-    public static final EnumMap<Material, HashMap<String, String>> types = new EnumMap<>(Material.class); //Material -> World Name -> PhatLoot Name
+    public static final Map<Material, HashMap<String, String>> types = new HashMap<>(); //Material -> World Name -> PhatLoot Name
     private static final HashMap<String, PhatLoot> phatLoots = new HashMap<>(); //PhatLoot Name -> PhatLoot
 
     private PluginHookManager hookManager;
