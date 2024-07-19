@@ -2,7 +2,6 @@ package com.codisimus.plugins.phatloots.hook.battlearena;
 
 import com.codisimus.plugins.phatloots.PhatLoot;
 import com.codisimus.plugins.phatloots.PhatLootChest;
-import com.codisimus.plugins.phatloots.PhatLoots;
 import org.battleplugins.arena.Arena;
 import org.battleplugins.arena.ArenaPlayer;
 import org.battleplugins.arena.competition.Competition;
@@ -11,7 +10,6 @@ import org.battleplugins.arena.competition.map.options.Bounds;
 import org.battleplugins.arena.event.action.EventAction;
 import org.battleplugins.arena.resolver.Resolvable;
 import org.bukkit.Location;
-import org.bukkit.block.Block;
 
 import java.util.Map;
 
@@ -39,22 +37,18 @@ public class ResetLootTablesAction extends EventAction {
             return;
         }
 
-        for (int x = bounds.getMinX(); x <= bounds.getMaxX(); x++) {
-            for (int y = bounds.getMinY(); y <= bounds.getMaxY(); y++) {
-                for (int z = bounds.getMinZ(); z <= bounds.getMaxZ(); z++) {
-                    Location location = new Location(liveCompetition.getMap().getWorld(), x, y, z);
-                    Block block = location.getBlock();
-                    if (!PhatLootChest.isPhatLootChest(block)) {
-                        continue;
-                    }
+        for (PhatLootChest chest : PhatLootChest.getChests()) {
+            if (!chest.isInWorld(liveCompetition.getMap().getWorld())) {
+                continue;
+            }
 
-                    PhatLootChest chest = PhatLootChest.getChest(location);
-                    for (PhatLoot phatLoot : PhatLoots.getPhatLoots()) {
-                        if (phatLoot.containsChest(chest)) {
-                            phatLoot.reset(block);
-                        }
-                    }
-                }
+            Location location = chest.getLocation();
+            if (!bounds.isInside(location)) {
+                continue;
+            }
+
+            for (PhatLoot phatLoot : chest.getLinkedPhatLoots()) {
+                phatLoot.reset(chest.getBlock());
             }
         }
     }

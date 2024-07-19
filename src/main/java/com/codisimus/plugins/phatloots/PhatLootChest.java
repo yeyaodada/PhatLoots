@@ -185,6 +185,15 @@ public class PhatLootChest {
     }
 
     /**
+     * Returns the Location this chest is located at
+     *
+     * @return The Location this chest is located at
+     */
+    public Location getLocation() {
+        return new Location(Bukkit.getWorld(world), x, y, z);
+    }
+
+    /**
      * Returns the Block that this Chest Represents
      *
      * @return The Block that this Chest Represents
