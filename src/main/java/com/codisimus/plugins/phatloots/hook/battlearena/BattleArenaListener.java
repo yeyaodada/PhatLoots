@@ -11,8 +11,8 @@ import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-class BattleArenaListener implements Listener {
-    private static final ArenaOptionType<BooleanArenaOption> SHUFFLE_LOOT = ArenaOptionType.create("shuffle-loot", BooleanArenaOption::new);
+public class BattleArenaListener implements Listener {
+    public static final ArenaOptionType<BooleanArenaOption> SHUFFLE_LOOT = ArenaOptionType.create("shuffle-loot", BooleanArenaOption::new);
 
     @EventHandler
     public void onLoot(PlayerLootEvent event) {
