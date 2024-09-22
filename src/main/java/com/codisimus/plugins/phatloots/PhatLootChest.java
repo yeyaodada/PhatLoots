@@ -441,7 +441,7 @@ public class PhatLootChest {
         for (ItemStack item : itemList) {
             addItem(item, player, inventory);
         }
-        if (shuffleLoot) {
+        if (PhatLootChest.shuffleLoot || shuffleLoot) {
             List<ItemStack> contents = Arrays.asList(inventory.getContents());
             Collections.shuffle(contents);
             inventory.setContents(contents.toArray(new ItemStack[0]));
