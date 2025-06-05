@@ -33,7 +33,7 @@ public class InventoryConditionListener implements Listener {
 
     public static void viewConditionMenu(Player player, PhatLoot phatLoot) {
         //Create the Inventory view
-        Inventory inv = Bukkit.createInventory(null, 54, phatLoot.name + " Conditions");
+        Inventory inv = Bukkit.createInventory(null, 54, phatLoot.name + " 条件设置");
         if (phatLoot.getLootConditions() != null && !phatLoot.getLootConditions().isEmpty()) {
             List<LootCondition> lootConditions = phatLoot.getLootConditions();
             for (int i = 0; i < lootConditions.size(); i++) {
@@ -43,7 +43,7 @@ public class InventoryConditionListener implements Listener {
 
         ItemStack item = new ItemStack(Material.LADDER);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(ChatColor.DARK_GREEN + "Up to...");
+        meta.setDisplayName(ChatColor.DARK_GREEN + "返回上一层...");
         meta.setLore(Collections.singletonList(ChatColor.GOLD + phatLoot.name));
         item.setItemMeta(meta);
         inv.setItem(SIZE - 1, item);
@@ -69,7 +69,7 @@ public class InventoryConditionListener implements Listener {
             return;
         }
 
-        if (!event.getView().getTitle().contains("Conditions")) {
+        if (!event.getView().getTitle().contains("条件设置")) {
             conditionViewers.remove(player.getUniqueId());
         }
 
@@ -109,7 +109,7 @@ public class InventoryConditionListener implements Listener {
         }
 
         // Check if the menu being closed is the condition menu
-        if (!event.getView().getTitle().contains("Conditions"))
+        if (!event.getView().getTitle().contains("条件设置"))
             return;
 
         // Return if the Player is not viewing the condition menu
