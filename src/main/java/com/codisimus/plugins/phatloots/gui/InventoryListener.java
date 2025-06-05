@@ -502,7 +502,7 @@ public class InventoryListener implements Listener {
         //Get the Inventory title
         String invName;
         if (phatLoot.name.length() <= 20) {
-            invName = phatLoot.name + " Loot Tables";
+            invName = phatLoot.name + " 战利品表";
         } else if (phatLoot.name.length() <= 32) {
             invName = phatLoot.name;
         } else {
@@ -519,15 +519,15 @@ public class InventoryListener implements Listener {
         //Display the Reset Time
         infoStack = new ItemStack(Material.CLOCK);
         info = Bukkit.getItemFactory().getItemMeta(infoStack.getType());
-        info.setDisplayName("§2Reset Time");
+        info.setDisplayName("§2重置时间");
         List<String> details = new ArrayList<>();
-        details.add("§4Days: §6" + phatLoot.days);
-        details.add("§4Hours: §6" + phatLoot.hours);
-        details.add("§4Minutes: §6" + phatLoot.minutes);
-        details.add("§4Seconds: §6" + phatLoot.seconds);
-        details.add("§4Reset Type: §6" + (phatLoot.global ? "Global" : "Individual"));
+        details.add("§4天数: §6" + phatLoot.days);
+        details.add("§4小时: §6" + phatLoot.hours);
+        details.add("§4分钟: §6" + phatLoot.minutes);
+        details.add("§4秒钟: §6" + phatLoot.seconds);
+        details.add("§4重置类型: §6" + (phatLoot.global ? "全局" : "独立"));
         if (phatLoot.round) {
-            details.add("§6Time is rounded down");
+            details.add("§6时间向下取整");
         }
         info.setLore(details);
         infoStack.setItemMeta(info);
@@ -537,7 +537,7 @@ public class InventoryListener implements Listener {
         //Display the autoloot status
         infoStack = new ItemStack(phatLoot.autoLoot ? Material.REDSTONE_TORCH : Material.LEVER);
         info = Bukkit.getItemFactory().getItemMeta(infoStack.getType());
-        info.setDisplayName("§4AutoLoot: §6" + phatLoot.autoLoot);
+        info.setDisplayName("§4自动拾取: §6" + phatLoot.autoLoot);
         infoStack.setItemMeta(info);
         index--;
         inv.setItem(index, infoStack);
@@ -545,14 +545,14 @@ public class InventoryListener implements Listener {
         //Display the break and respawn status
         infoStack = new ItemStack(phatLoot.breakAndRespawn ? Material.SPAWNER : Material.CHEST);
         info = Bukkit.getItemFactory().getItemMeta(infoStack.getType());
-        info.setDisplayName("§4Break and Respawn: §6" + phatLoot.breakAndRespawn);
+        info.setDisplayName("§4破坏后重生: §6" + phatLoot.breakAndRespawn);
         details = new ArrayList<>();
         if (phatLoot.breakAndRespawn) {
-            details.add("§6This chest will break after it is looted");
-            details.add("§6and respawn once it may be looted again.");
+            details.add("§6这个箱子在被拾取后会破坏");
+            details.add("§6并在可以再次拾取时重生.");
         } else {
-            details.add("§6This chest will always be present");
-            details.add("§6even after it is looted.");
+            details.add("§6这个箱子将始终存在");
+            details.add("§6即使在被拾取后.");
         }
         info.setLore(details);
         infoStack.setItemMeta(info);
@@ -561,12 +561,11 @@ public class InventoryListener implements Listener {
 
         infoStack = new ItemStack(Material.ACACIA_DOOR);
         info = Bukkit.getItemFactory().getItemMeta(infoStack.getType());
-        info.setDisplayName("§eLoot Conditions");
+        info.setDisplayName("§e战利品条件");
         details = new ArrayList<>();
-        details.add("§6Loot conditions are options you can");
-        details.add("§6configure for loot tables so that they");
-        details.add("§6are only lootable if the conditions");
-        details.add("§6are met.");
+        details.add("§6战利品条件是可配置的选项");
+        details.add("§只有当满足条件时");
+        details.add("§6才能拾取战利品表中的物品");
         info.setLore(details);
         infoStack.setItemMeta(info);
         index--;
@@ -592,7 +591,7 @@ public class InventoryListener implements Listener {
         //Get the Inventory title
         String invName;
         if (name.length() < 20) {
-            invName = name + " (Collection)";
+            invName = name + " (子战利品表)";
         } else if (name.length() <= 32) {
             invName = name;
         } else {
@@ -605,14 +604,14 @@ public class InventoryListener implements Listener {
         //Create the Back to top button
         ItemStack item = new ItemStack(Material.LADDER);
         ItemMeta info = Bukkit.getItemFactory().getItemMeta(item.getType());
-        info.setDisplayName("§2Back to top...");
+        info.setDisplayName("§2返回顶层...");
         item.setItemMeta(info);
         inv.setItem(SIZE - 2, item);
 
         //Create the Up button
         item = new ItemStack(Material.LADDER);
         info = Bukkit.getItemFactory().getItemMeta(item.getType());
-        info.setDisplayName("§2Up to...");
+        info.setDisplayName("§2返回上一层...");
         List<String> details = new ArrayList<>();
         details.add("§6" + pageStacks.get(player.getUniqueId()).peek().getTitle());
         info.setLore(details);
@@ -693,7 +692,7 @@ public class InventoryListener implements Listener {
             inv.setItem(index, loot.getInfoStack());
             index++;
             if (index >= TOOL_SLOT) {
-                player.sendMessage("§4Not all items could fit within the inventory view.");
+                player.sendMessage("§4无法显示所有物品.");
                 break;
             }
         }
